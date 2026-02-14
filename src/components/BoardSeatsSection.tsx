@@ -1,11 +1,9 @@
 import { ExternalLink } from "lucide-react";
 
-const boardSeats = [
-  { company: "TechVentures Inc.", role: "Board Director", period: "2021 – Present", url: "#" },
-  { company: "FinanceFlow Corp.", role: "Advisory Board", period: "2020 – Present", url: "#" },
-  { company: "HealthBridge AI", role: "Board Observer", period: "2019 – 2023", url: "#" },
-  { company: "CloudScale Systems", role: "Board Director", period: "2018 – 2022", url: "#" },
-  { company: "GreenEnergy Labs", role: "Advisory Board", period: "2017 – 2021", url: "#" },
+const roles = [
+  { company: "DigiReps", role: "Founder & CEO", period: "2023 – Present", url: "https://digireps.co" },
+  { company: "Prodigy Solutions", role: "Founder", period: "Prior to DigiReps", url: "#" },
+  { company: "Forbes Business Council", role: "Official Member", period: "Present", url: "https://councils.forbes.com/profile/Muhammad-Nabeel-Shamim-Founder-CEO-DigiReps/f15d004f-bae0-4bee-8276-1af1b187609e" },
 ];
 
 const BoardSeatsSection = () => {
@@ -17,15 +15,17 @@ const BoardSeatsSection = () => {
             Leadership
           </h2>
           <p className="text-3xl md:text-4xl font-bold font-['Outfit']">
-            Board Seats
+            Roles &amp; Leadership
           </p>
         </div>
 
         <div className="max-w-3xl mx-auto flex flex-col gap-4">
-          {boardSeats.map((seat, i) => (
+          {roles.map((seat, i) => (
             <a
               key={i}
               href={seat.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-between p-5 rounded-xl border border-border bg-card hover:border-primary/40 transition-colors group"
             >
               <div>
