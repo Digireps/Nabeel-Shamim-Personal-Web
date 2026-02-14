@@ -3,24 +3,24 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "An exceptional investor who brings far more than capital. Their strategic guidance was instrumental in scaling our company to new heights.",
-    name: "Jane Smith",
-    title: "CEO, TechStartup Inc.",
+    quote: "Nabeel's ability to identify talent and build high-performing remote teams is unmatched. He transformed how our company approaches hiring.",
+    name: "Alex Rivera",
+    title: "CEO, U.S. Tech Startup",
   },
   {
-    quote: "One of the most thoughtful and supportive board members I've had the privilege of working with. Always available with sharp insights.",
-    name: "Michael Chen",
-    title: "Founder, DataFlow AI",
+    quote: "Working with DigiReps was a game-changer. Nabeel's hands-on leadership and commitment to quality delivered results far beyond our expectations.",
+    name: "Jessica Morgan",
+    title: "VP of Operations, SaaS Company",
   },
   {
-    quote: "Their deep industry connections and operational expertise have been invaluable. A true partner in every sense of the word.",
-    name: "Sarah Johnson",
-    title: "COO, FinanceApp Co.",
+    quote: "Nabeel brings a rare combination of entrepreneurial vision and operational excellence. His insights on scaling businesses are invaluable.",
+    name: "Ryan Patel",
+    title: "Founder, E-Commerce Brand",
   },
   {
-    quote: "Brings a unique perspective that combines technical depth with business acumen. Every conversation leaves you with actionable ideas.",
-    name: "David Park",
-    title: "CTO, CloudNative Labs",
+    quote: "A true leader who leads by example. Nabeel's work ethic and strategic thinking have made a lasting impact on everyone who works with him.",
+    name: "Samantha Lee",
+    title: "Director of Growth, Inc. 5000 Company",
   },
 ];
 
@@ -40,7 +40,7 @@ const TestimonialsSection = () => {
             Testimonials
           </h2>
           <p className="text-3xl md:text-4xl font-bold font-['Outfit']">
-            What Founders & Peers Say
+            What Clients &amp; Peers Say
           </p>
         </div>
 

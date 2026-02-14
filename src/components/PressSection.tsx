@@ -1,10 +1,29 @@
 const pressItems = [
-  { title: "Keynote at Global VC Summit 2024", source: "TechCrunch" },
-  { title: "The Future of Fintech Investments", source: "Forbes" },
-  { title: "Panel: AI in Enterprise", source: "Web Summit" },
-  { title: "Investing in Climate Tech", source: "Bloomberg" },
-  { title: "Fireside Chat: Founder Mindset", source: "CNBC" },
-  { title: "How VC is Evolving in 2024", source: "The Information" },
+  {
+    title: "From Hiring To Execution: Building Remote Dev Teams That Thrive Asynchronously",
+    source: "Forbes",
+    url: "https://www.forbes.com/councils/forbesbusinesscouncil/2025/12/02/from-hiring-to-execution-building-remote-dev-teams-that-thrive-asynchronously/",
+  },
+  {
+    title: "20 Telltale Signs Someone Isn't Ready To Step Into Leadership",
+    source: "Forbes",
+    url: "https://www.forbes.com/councils/forbesbusinesscouncil/2025/09/25/20-telltale-signs-someone-isnt-ready-to-step-into-leadership/",
+  },
+  {
+    title: "How Founders Can Lead Sales Early And Transition Out At The Right Time",
+    source: "Forbes",
+    url: "https://www.forbes.com/councils/forbesbusinesscouncil/2025/09/05/how-founders-can-lead-sales-early-and-transition-out-at-the-right-time/",
+  },
+  {
+    title: "Muhammad Nabeel Shamim: A Name to Watch in Entrepreneurship & Technology",
+    source: "FHM Pakistan",
+    url: "https://www.fhmpakistan.com/muhammad-nabeel-shamim-a-name-to-watch-in-entrepreneurship-technology-global/",
+  },
+  {
+    title: "Forbes Business Council Member Profile",
+    source: "Forbes Council",
+    url: "https://councils.forbes.com/profile/Muhammad-Nabeel-Shamim-Founder-CEO-DigiReps/f15d004f-bae0-4bee-8276-1af1b187609e",
+  },
 ];
 
 const PressSection = () => {
@@ -16,7 +35,7 @@ const PressSection = () => {
             Media
           </h2>
           <p className="text-3xl md:text-4xl font-bold font-['Outfit']">
-            Press, Talks & Conferences
+            Press &amp; Publications
           </p>
         </div>
 
@@ -24,7 +43,9 @@ const PressSection = () => {
           {pressItems.map((item, i) => (
             <a
               key={i}
-              href="#"
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group block rounded-xl overflow-hidden border border-border hover:border-primary/40 transition-colors bg-card"
             >
               <div className="aspect-video bg-secondary flex items-center justify-center text-muted-foreground text-sm">

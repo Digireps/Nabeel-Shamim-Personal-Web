@@ -14,27 +14,31 @@ const IntroductionSection = () => {
         <div className="grid md:grid-cols-[2fr_1fr] gap-10 items-start">
           <div>
             <p className="text-lg text-foreground leading-relaxed mb-6">
-              With over two decades of experience in venture capital and technology
-              investments, I have had the privilege of backing some of the most
-              innovative companies across fintech, healthtech, and enterprise SaaS.
+              Muhammad Nabeel Shamim is a results-driven entrepreneur from
+              Karachi, Pakistan — a self-made millionaire by 32 with over a
+              decade of experience solving complex business challenges for U.S.
+              companies.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              My investment philosophy centers on identifying visionary founders
-              who are building solutions to significant market problems. I believe
-              in being an active partner, bringing strategic guidance, deep
-              industry connections, and operational expertise to every portfolio
-              company.
+              As Founder &amp; CEO of DigiReps, he connects businesses with
+              pre-vetted remote professionals in sales, customer support, and
+              technology — delivering world-class talent at a fraction of the
+              cost while maintaining uncompromising quality.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Prior to my career in venture capital, I held leadership positions at
-              several Fortune 500 technology companies, where I gained firsthand
-              experience in scaling businesses from startup to enterprise.
+              Previously, he built Prodigy Solutions into a top-tier
+              business-development agency that helped multiple U.S. companies
+              achieve Inc. 5000 status. DigiReps itself became a million-dollar
+              venture within just 1.5 years of launch.
             </p>
             <Button
               variant="outline"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-8 uppercase tracking-wider text-sm"
+              asChild
             >
-              Let's Know More
+              <a href="https://digireps.co/aboutus" target="_blank" rel="noopener noreferrer">
+                Learn More
+              </a>
             </Button>
           </div>
 
