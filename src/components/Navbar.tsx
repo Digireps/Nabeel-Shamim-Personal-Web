@@ -13,7 +13,7 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl gradient-border-top border-b-0">
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="#" className="text-xl font-bold text-gradient font-['Outfit']">MNS</a>
         <div className="hidden md:flex items-center gap-8">
@@ -21,7 +21,7 @@ const Navbar = () => {
             <a
               key={item.label}
               href={item.href}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-primary hover:after:w-full after:transition-all after:duration-300"
             >
               {item.label}
             </a>
@@ -35,7 +35,7 @@ const Navbar = () => {
         </button>
       </div>
       {mobileOpen && (
-        <div className="md:hidden bg-background border-b border-border px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden glass px-6 py-4 flex flex-col gap-4">
           {navItems.map((item) => (
             <a
               key={item.label}

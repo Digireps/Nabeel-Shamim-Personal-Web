@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
   {
@@ -35,50 +36,73 @@ const TestimonialsSection = () => {
   return (
     <section id="testimonials" className="py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-sm uppercase tracking-[0.3em] text-primary font-semibold mb-3">
             Testimonials
           </h2>
           <p className="text-3xl md:text-4xl font-bold font-['Outfit']">
             What Clients &amp; Peers Say
           </p>
-        </div>
+        </motion.div>
 
-        <div className="max-w-3xl mx-auto text-center">
-          <Quote size={40} className="text-primary/30 mx-auto mb-6" />
-          <p className="text-xl md:text-2xl leading-relaxed text-foreground mb-8 min-h-[6rem]">
-            "{t.quote}"
-          </p>
-          <div className="w-14 h-14 rounded-full bg-secondary border border-border mx-auto mb-4 flex items-center justify-center text-muted-foreground text-xs">
-            Photo
-          </div>
-          <p className="font-semibold font-['Outfit'] text-primary">{t.name}</p>
-          <p className="text-sm text-muted-foreground">{t.title}</p>
+        <div className="max-w-3xl mx-auto">
+          <div className="glass rounded-2xl p-8 md:p-12 glow-teal text-center">
+            <Quote size={48} className="text-primary/20 mx-auto mb-6" />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                <p className="text-xl md:text-2xl leading-relaxed text-foreground mb-8 min-h-[6rem]">
+                  "{t.quote}"
+                </p>
+                <div className="w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center text-primary font-bold font-['Outfit'] text-lg"
+                  style={{
+                    background: 'linear-gradient(135deg, hsla(174, 72%, 50%, 0.15), hsla(190, 80%, 60%, 0.1))',
+                    border: '2px solid hsla(174, 72%, 50%, 0.3)',
+                  }}
+                >
+                  {t.name[0]}
+                </div>
+                <p className="font-semibold font-['Outfit'] text-primary">{t.name}</p>
+                <p className="text-sm text-muted-foreground">{t.title}</p>
+              </motion.div>
+            </AnimatePresence>
 
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <button
-              onClick={prev}
-              className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
-            >
-              <ChevronLeft size={18} />
-            </button>
-            <div className="flex gap-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrent(i)}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    i === current ? "bg-primary" : "bg-border"
-                  }`}
-                />
-              ))}
+            <div className="flex items-center justify-center gap-4 mt-8">
+              <button
+                onClick={prev}
+                className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:glow-teal transition-all duration-300"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <div className="flex gap-2">
+                {testimonials.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrent(i)}
+                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                      i === current ? "bg-primary glow-teal scale-125" : "bg-border"
+                    }`}
+                  />
+                ))}
+              </div>
+              <button
+                onClick={next}
+                className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:glow-teal transition-all duration-300"
+              >
+                <ChevronRight size={18} />
+              </button>
             </div>
-            <button
-              onClick={next}
-              className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
-            >
-              <ChevronRight size={18} />
-            </button>
           </div>
         </div>
       </div>
