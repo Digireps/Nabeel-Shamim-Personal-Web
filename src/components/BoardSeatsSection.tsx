@@ -9,8 +9,9 @@ const roles = [
 
 const BoardSeatsSection = () => {
   return (
-    <section id="board-seats" className="py-24 md:py-32 bg-secondary/50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="board-seats" className="py-24 md:py-32 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/30 to-transparent pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-6 relative">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -33,13 +34,13 @@ const BoardSeatsSection = () => {
               href={seat.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 p-5 rounded-xl border-l-4 border-l-primary border border-border bg-card hover-lift hover:bg-primary/[0.03] transition-all duration-300 group"
+              className="flex items-center gap-4 p-5 rounded-xl border-l-2 border-l-primary/50 border border-border/50 glass hover-lift hover:glow-teal hover:border-primary/40 transition-all duration-300 group"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <div className="w-10 h-10 rounded-full accent-block flex items-center justify-center text-primary-foreground font-bold font-['Outfit'] text-sm shrink-0">
+              <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold font-['Outfit'] text-sm shrink-0">
                 {seat.initial}
               </div>
               <div className="flex-1">

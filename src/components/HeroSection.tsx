@@ -18,7 +18,11 @@ const tickerItems = [
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center pt-16 overflow-hidden bg-background">
+    <section className="relative min-h-screen flex flex-col justify-center pt-16 overflow-hidden gradient-bg-hero">
+      {/* Ambient glow orbs */}
+      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[100px] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center py-20">
         <motion.div
           className="z-10"
@@ -29,10 +33,10 @@ const HeroSection = () => {
           <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
             Welcome to my portfolio
           </p>
-          <h1 className="text-massive font-black font-['Outfit'] leading-[0.85] mb-6 text-foreground">
-            NABEEL
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black font-['Outfit'] leading-[0.9] mb-6 text-glow">
+            <span className="text-gradient">NABEEL</span>
             <br />
-            SHAMIM
+            <span className="text-gradient">SHAMIM</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-md mb-8 leading-relaxed">
             Founder &amp; CEO | Entrepreneur | Forbes Business Council Member.
@@ -46,15 +50,16 @@ const HeroSection = () => {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 rounded-full bg-foreground text-background flex items-center justify-center hover:bg-primary transition-all duration-300"
+                className="w-11 h-11 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:glow-teal transition-all duration-300 hover:scale-110"
               >
                 <Icon size={18} />
               </a>
             ))}
           </div>
           <Button
+            variant="outline"
             size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 uppercase tracking-wider text-sm transition-all duration-300"
+            className="border-primary/60 text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-8 uppercase tracking-wider text-sm hover:glow-teal-strong transition-all duration-300"
             onClick={() => document.getElementById("introduction")?.scrollIntoView({ behavior: "smooth" })}
           >
             Learn More
@@ -67,8 +72,13 @@ const HeroSection = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          <div className="relative w-72 h-96 md:w-80 md:h-[28rem] rounded-2xl overflow-hidden border border-border bg-secondary">
-            <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
+          <span className="absolute text-[14rem] md:text-[20rem] font-black font-['Outfit'] text-primary/[0.06] select-none leading-none">
+            MNS
+          </span>
+          {/* Glow behind portrait */}
+          <div className="absolute w-72 h-96 md:w-80 md:h-[28rem] rounded-2xl bg-primary/15 blur-[60px] pointer-events-none" />
+          <div className="relative w-72 h-96 md:w-80 md:h-[28rem] rounded-2xl overflow-hidden border border-border glow-teal">
+            <div className="w-full h-full bg-gradient-to-br from-secondary to-background flex items-center justify-center text-muted-foreground text-sm">
               Portrait Photo
             </div>
           </div>
@@ -76,15 +86,15 @@ const HeroSection = () => {
       </div>
 
       {/* Ticker */}
-      <div className="w-full accent-block py-4 overflow-hidden">
+      <div className="w-full border-y border-border/50 glass py-4 overflow-hidden">
         <div className="marquee whitespace-nowrap flex">
           {[...tickerItems, ...tickerItems].map((item, i) => (
             <span
               key={i}
-              className="inline-block mx-8 text-sm uppercase tracking-[0.3em] text-primary-foreground font-semibold"
+              className="inline-block mx-8 text-sm uppercase tracking-[0.3em] text-muted-foreground font-medium"
             >
               {item}
-              <span className="ml-8 text-primary-foreground/40">|</span>
+              <span className="ml-8 text-primary/40">|</span>
             </span>
           ))}
         </div>
