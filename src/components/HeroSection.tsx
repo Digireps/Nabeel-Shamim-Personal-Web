@@ -20,8 +20,8 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex flex-col justify-center pt-16 overflow-hidden gradient-bg-hero">
       {/* Ambient glow orbs */}
-      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/3 blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center py-20">
         <motion.div
@@ -72,13 +72,13 @@ const HeroSection = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          <span className="absolute text-[14rem] md:text-[20rem] font-black font-['Outfit'] text-primary/[0.03] select-none leading-none">
+          <span className="absolute text-[14rem] md:text-[20rem] font-black font-['Outfit'] text-primary/[0.06] select-none leading-none">
             MNS
           </span>
           {/* Glow behind portrait */}
-          <div className="absolute w-72 h-96 md:w-80 md:h-[28rem] rounded-2xl bg-primary/10 blur-[60px] pointer-events-none" />
-          <div className="relative w-72 h-96 md:w-80 md:h-[28rem] rounded-2xl overflow-hidden border border-border/50 glow-teal">
-            <div className="w-full h-full bg-gradient-to-br from-secondary to-card flex items-center justify-center text-muted-foreground text-sm">
+          <div className="absolute w-72 h-96 md:w-80 md:h-[28rem] rounded-2xl bg-primary/15 blur-[60px] pointer-events-none" />
+          <div className="relative w-72 h-96 md:w-80 md:h-[28rem] rounded-2xl overflow-hidden border border-border glow-teal">
+            <div className="w-full h-full bg-gradient-to-br from-secondary to-background flex items-center justify-center text-muted-foreground text-sm">
               Portrait Photo
             </div>
           </div>
