@@ -52,8 +52,8 @@ const TestimonialsSection = () => {
         </motion.div>
 
         <div className="max-w-3xl mx-auto">
-          <div className="glass rounded-2xl p-8 md:p-12 glow-teal text-center">
-            <Quote size={48} className="text-primary/20 mx-auto mb-6" />
+          <div className="bg-card rounded-2xl p-8 md:p-12 border border-border text-center">
+            <Quote size={48} className="text-primary mx-auto mb-6" />
             <AnimatePresence mode="wait">
               <motion.div
                 key={current}
@@ -62,18 +62,13 @@ const TestimonialsSection = () => {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="text-xl md:text-2xl leading-relaxed text-foreground mb-8 min-h-[6rem]">
+                <p className="text-xl md:text-2xl leading-relaxed text-foreground font-['Outfit'] font-light mb-8 min-h-[6rem]">
                   "{t.quote}"
                 </p>
-                <div className="w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center text-primary font-bold font-['Outfit'] text-lg"
-                  style={{
-                    background: 'linear-gradient(135deg, hsla(174, 72%, 50%, 0.15), hsla(190, 80%, 60%, 0.1))',
-                    border: '2px solid hsla(174, 72%, 50%, 0.3)',
-                  }}
-                >
+                <div className="w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center accent-block text-primary-foreground font-bold font-['Outfit'] text-lg">
                   {t.name[0]}
                 </div>
-                <p className="font-semibold font-['Outfit'] text-primary">{t.name}</p>
+                <p className="font-semibold font-['Outfit'] text-foreground">{t.name}</p>
                 <p className="text-sm text-muted-foreground">{t.title}</p>
               </motion.div>
             </AnimatePresence>
@@ -81,7 +76,7 @@ const TestimonialsSection = () => {
             <div className="flex items-center justify-center gap-4 mt-8">
               <button
                 onClick={prev}
-                className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:glow-teal transition-all duration-300"
+                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
               >
                 <ChevronLeft size={18} />
               </button>
@@ -91,14 +86,14 @@ const TestimonialsSection = () => {
                     key={i}
                     onClick={() => setCurrent(i)}
                     className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                      i === current ? "bg-primary glow-teal scale-125" : "bg-border"
+                      i === current ? "bg-primary scale-125" : "bg-border"
                     }`}
                   />
                 ))}
               </div>
               <button
                 onClick={next}
-                className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:glow-teal transition-all duration-300"
+                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
               >
                 <ChevronRight size={18} />
               </button>

@@ -6,19 +6,17 @@ const ventures = [
   { name: "Prodigy Solutions", description: "Business Development Agency" },
 ];
 
-const fadeIn = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-100px" },
-  transition: { duration: 0.6 },
-};
-
 const InvestmentsSection = () => {
   return (
-    <section id="investments" className="py-24 md:py-32 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/30 to-transparent pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-6 relative">
-        <motion.div className="text-center mb-16" {...fadeIn}>
+    <section id="investments" className="py-24 md:py-32 bg-secondary/50">
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-sm uppercase tracking-[0.3em] text-primary font-semibold mb-3">
             Companies
           </h2>
@@ -35,9 +33,11 @@ const InvestmentsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group aspect-[2/1] rounded-xl glass hover-lift hover:glow-teal-strong flex flex-col items-center justify-center cursor-pointer p-6 transition-all duration-300"
+              className="group bg-card border border-border rounded-xl hover-lift flex flex-col items-center justify-center cursor-pointer p-8 transition-all duration-300 border-t-[3px] border-t-primary hover:border-primary"
             >
-              <Building2 size={28} className="text-primary/40 group-hover:text-primary transition-colors mb-3" />
+              <div className="w-12 h-12 rounded-full accent-block flex items-center justify-center mb-4">
+                <Building2 size={22} className="text-primary-foreground" />
+              </div>
               <span className="text-foreground group-hover:text-primary transition-colors text-lg font-semibold font-['Outfit']">
                 {company.name}
               </span>
