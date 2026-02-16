@@ -86,15 +86,14 @@ const HeroSection = () => {
       </div>
 
       {/* Ticker */}
-     <div className="w-full accent-block py-4 overflow-hidden">
-        <div className="marquee whitespace-nowrap flex">
+      <div className="w-full accent-block py-5 overflow-hidden">
+        <div className="marquee whitespace-nowrap flex items-center">
           {[...tickerItems, ...tickerItems].map((item, i) => (
-            <span
-              key={i}
-              className="inline-block mx-8 text-sm uppercase tracking-[0.3em] text-primary-foreground font-semibold"
-            >
-              {item}
-              <span className="ml-8 text-primary-foreground/40">|</span>
+            <span key={i} className="inline-flex items-center">
+              <span className="text-sm md:text-base uppercase tracking-[0.35em] text-primary-foreground font-bold px-10">
+                {item}
+              </span>
+              <span className="w-px h-5 bg-primary-foreground/50" />
             </span>
           ))}
         </div>
