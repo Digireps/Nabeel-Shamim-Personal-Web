@@ -107,6 +107,10 @@
     text-shadow: 0 0 40px hsla(174, 72%, 40%, 0.2), 0 0 80px hsla(174, 72%, 40%, 0.08);
   }
 
+  .accent-block {
+    background-color: hsl(var(--primary));
+  }
+
   .hover-lift {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
