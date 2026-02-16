@@ -1,116 +1,46 @@
 
 
-# Creative Redesign - Modern & Minimal
+# Codebase Cleanup: Remove All Platform References and Polish for Human Developer
 
-A clean, Apple-inspired design with crisp whites, bold teal accent splashes, oversized typography, and generous whitespace. Every section will feel intentional and premium.
-
----
-
-## Design Philosophy
-
-- Pure white backgrounds with strategic teal color blocks and accent splashes
-- Oversized, bold typography as a design element itself
-- Generous whitespace creating breathing room and elegance
-- Sharp geometric accents (teal rectangles, lines, blocks) instead of blurry glows
-- Subtle but crisp animations (no heavy glow/glassmorphism)
-- High contrast between text and background for readability
+This plan covers removing every remaining trace of platform-specific branding from the codebase and cleaning up the project structure so it looks like a professionally hand-built project.
 
 ---
 
-## 1. Global Styles (`src/index.css`)
+## What Needs to Change
 
-- Background: pure white (#ffffff)
-- Foreground: near-black (#111111)
-- Primary: vibrant teal (keep current hue but increase saturation)
-- Remove all glassmorphism (`.glass`), glow effects (`.glow-teal`), and gradient backgrounds
-- Replace with new utilities:
-  - `.accent-block` - solid teal background blocks for feature callouts
-  - `.line-accent` - thin teal horizontal/vertical lines as dividers
-  - `.text-massive` - utility for oversized display text (8-12rem)
-- Clean up gradient-bg-hero to be pure white with a single subtle teal wash in one corner
-- Ticker bar: solid teal background with white text (bold, high contrast)
+### 1. Remove `lovable-tagger` from dependencies
+- **`package.json`**: Remove `"lovable-tagger": "^1.1.13"` from `devDependencies`
+- **`package.json`**: Rename `"name"` from `"vite_react_shadcn_ts"` to `"mns-portfolio"` (a proper, branded project name)
 
-## 2. Navbar (`Navbar.tsx`)
+### 2. Rewrite README.md
+- Replace the entire default template README with a clean, professional project README:
+  - Project title: "MNS Portfolio"
+  - Brief description of the site
+  - Tech stack listed (React, Vite, TypeScript, Tailwind CSS, Framer Motion)
+  - Simple setup instructions (clone, install, dev)
+  - No references to any external platform
 
-- Pure white background with crisp bottom border (1px solid light grey)
-- No blur, no glass - just clean and sharp
-- Logo "MNS" in solid teal, bold
-- Nav links in dark grey, hover turns teal with a clean underline
-- Mobile menu: clean white dropdown with teal accents
+### 3. Remove `.lovable/` directory
+- Delete `.lovable/plan.md` - this is an internal planning artifact and should not ship with the project
 
-## 3. Hero Section (`HeroSection.tsx`)
+### 4. Clean up `components.json`
+- This file references `shadcn` schema URL (`https://ui.shadcn.com/schema.json`) which is fine since shadcn/ui is a legitimate open-source library, but the file itself is only used for the shadcn CLI tooling. It can stay as-is since it is standard for any shadcn/ui project.
 
-- Pure white background, no gradient orbs or ambient effects
-- Name "NABEEL SHAMIM" in massive black text (not teal gradient) - oversized, taking up visual space like a magazine cover
-- Subtitle and description in medium grey
-- Social icons: simple dark circles with white icons, teal on hover
-- "Learn More" button: solid teal background, white text, rounded pill shape
-- Portrait placeholder: large, clean rectangle with a solid light grey background and thin border - no glow, no blur
-- Remove the "MNS" watermark entirely - let the name speak for itself
-- Ticker bar: solid teal (#2ab5a0) full-width band with white uppercase text - creates a strong visual break
-
-## 4. Introduction Section (`IntroductionSection.tsx`)
-
-- Two-column layout: left side has "INTRO" as a massive light-grey watermark word, right side has content
-- Content area: clean paragraphs with generous line-height
-- Add a bold teal vertical line (4px wide) as a left border accent on the main text block
-- Portrait: clean rectangle, no glow effects, just a subtle shadow
-- "Learn More" button: outlined in teal, clean hover state
-
-## 5. Ventures Section (`InvestmentsSection.tsx`)
-
-- Cards: white background with a thin grey border, generous padding
-- On hover: border turns teal, subtle upward translateY (2px), light shadow
-- No glassmorphism - clean, flat cards
-- Company icon area: teal circle with white icon
-- Each card gets a thin teal top border (3px) as an accent stripe
-
-## 6. Press Section (`PressSection.tsx`)
-
-- Cards: white with thin grey border
-- Thumbnail area: solid teal background (not gradient) with white source text centered
-- Alternating thumbnail colors: teal, dark navy, slate - gives visual variety without gradients
-- On hover: card lifts slightly with a clean shadow
-- Title text: dark, bold, clean serif or Outfit font
-
-## 7. Roles & Leadership (`BoardSeatsSection.tsx`)
-
-- Clean list with generous spacing
-- Each item: white card with a bold teal left border (4px)
-- Initial circle: solid teal background with white letter
-- Clean typography, no glow effects
-- Subtle hover: background shifts to very light teal tint
-
-## 8. Testimonials (`TestimonialsSection.tsx`)
-
-- Large teal quotation mark as a decorative element
-- Quote text in large, elegant font (Outfit, light weight)
-- Clean white card with generous padding and a thin border
-- Avatar circle: solid teal with white initial
-- Navigation arrows: simple outlined circles, teal on hover
-- Dot indicators: small circles, solid teal when active
-
-## 9. Footer (`Footer.tsx`)
-
-- Light grey background (#f8f8fa) to create section separation
-- Thin teal top border line
-- Clean dark text, teal hover on links
-- Simple and minimal - no gradients
+### 5. Lock files
+- `bun.lock` and `bun.lockb` contain references to `lovable-tagger` in their resolved dependency trees. After removing it from `package.json`, running `npm install` locally will regenerate `package-lock.json` without it. The bun lock files will also need regeneration if using bun.
 
 ---
 
-## Technical Summary
+## Technical Details
 
 **Files to modify:**
-- `src/index.css` - New minimal color variables, remove glass/glow utilities, add accent utilities
-- `src/components/HeroSection.tsx` - Pure white bg, massive black text, solid teal ticker, clean portrait
-- `src/components/Navbar.tsx` - Clean white navbar, no blur effects
-- `src/components/IntroductionSection.tsx` - Clean layout with teal accent line
-- `src/components/InvestmentsSection.tsx` - Flat white cards with teal accents
-- `src/components/PressSection.tsx` - Clean cards with solid-color thumbnails
-- `src/components/BoardSeatsSection.tsx` - Clean list with teal left borders
-- `src/components/TestimonialsSection.tsx` - Clean card, large quote mark, minimal styling
-- `src/components/Footer.tsx` - Light grey background, clean layout
+- `package.json` - Rename project, remove `lovable-tagger`
+- `README.md` - Complete rewrite with clean professional content
 
-**No new dependencies needed.**
+**Files to delete:**
+- `.lovable/plan.md` (and the `.lovable/` directory)
+
+**No code logic changes** - all component files are already clean and well-structured.
+
+**Note:** The `package-lock.json` and `bun.lock`/`bun.lockb` files will automatically update when dependencies are reinstalled after removing `lovable-tagger`. These lock files are auto-generated and not manually edited.
 
