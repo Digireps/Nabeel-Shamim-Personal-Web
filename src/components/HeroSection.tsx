@@ -1,6 +1,7 @@
 import { Linkedin, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import nabeelPortrait from "@/assets/nabeel-portrait.png";
 
 const socialLinks = [
   { icon: Linkedin, href: "https://www.linkedin.com/in/mnabeelshamim/" },
@@ -78,9 +79,7 @@ const HeroSection = () => {
           {/* Glow behind portrait */}
           <div className="absolute w-72 h-96 md:w-80 md:h-[28rem] rounded-2xl bg-primary/15 blur-[60px] pointer-events-none" />
           <div className="relative w-72 h-96 md:w-80 md:h-[28rem] rounded-2xl overflow-hidden border border-border glow-teal">
-            <div className="w-full h-full bg-gradient-to-br from-secondary to-background flex items-center justify-center text-muted-foreground text-sm">
-              Portrait Photo
-            </div>
+            <img src={nabeelPortrait} alt="Muhammad Nabeel Shamim" className="w-full h-full object-cover -scale-x-100" />
           </div>
         </motion.div>
       </div>

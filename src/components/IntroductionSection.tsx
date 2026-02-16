@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import nabeelPortrait from "@/assets/nabeel-portrait.png";
 
 const fadeIn = {
   initial: { opacity: 0, y: 30 },
@@ -62,9 +63,7 @@ const IntroductionSection = () => {
           >
             <div className="absolute inset-0 rounded-xl bg-primary/5 blur-[40px] pointer-events-none" />
             <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden border border-border/50 glow-teal">
-              <div className="w-full h-full bg-gradient-to-br from-secondary to-card flex items-center justify-center text-muted-foreground text-sm">
-                Portrait Photo
-              </div>
+              <img src={nabeelPortrait} alt="Muhammad Nabeel Shamim" className="w-full h-full object-cover -scale-x-100" />
             </div>
           </motion.div>
         </div>
