@@ -8,7 +8,7 @@ const ventures = [
 
 const InvestmentsSection = () => {
   return (
-    <section id="investments" className="py-24 md:py-32 bg-secondary/30">
+    <section id="investments" className="py-24 md:py-32 bg-secondary/50">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-16"
@@ -32,14 +32,16 @@ const InvestmentsSection = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group aspect-[2/1] rounded-xl card-clean card-clean-hover flex flex-col items-center justify-center cursor-pointer p-6"
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              whileHover={{ scale: 1.03 }}
+              className="group aspect-[2/1] rounded-xl card-clean card-clean-hover flex flex-col items-center justify-center cursor-pointer p-6 relative overflow-hidden"
             >
-              <Building2 size={28} className="text-primary/40 group-hover:text-primary transition-colors mb-3" />
-              <span className="text-foreground group-hover:text-primary transition-colors text-lg font-semibold font-heading">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <Building2 size={28} className="text-primary/40 group-hover:text-primary transition-colors duration-300 mb-3 relative z-10" />
+              <span className="text-foreground group-hover:text-primary transition-colors duration-300 text-lg font-semibold font-heading relative z-10">
                 {company.name}
               </span>
-              <span className="text-muted-foreground text-sm mt-1">
+              <span className="text-muted-foreground text-sm mt-1 relative z-10">
                 {company.description}
               </span>
             </motion.div>
