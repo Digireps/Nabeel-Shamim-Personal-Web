@@ -30,7 +30,7 @@ const HeroSection = () => {
           <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
             Welcome to my portfolio
           </p>
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black font-heading leading-[0.9] mb-6 text-glow">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black font-heading leading-[0.9] mb-6 text-glow tracking-tight">
             <span className="text-gradient">NABEEL</span>
             <br />
             <span className="text-gradient">SHAMIM</span>
@@ -69,8 +69,11 @@ const HeroSection = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          <div className="relative w-72 h-96 md:w-80 md:h-[28rem] rounded-2xl overflow-hidden border border-border shadow-lg">
-            <img src={nabeelPortrait} alt="Muhammad Nabeel Shamim" className="w-full h-full object-cover" />
+          <div className="relative">
+            <div className="absolute -inset-4 bg-primary/5 rounded-3xl -rotate-3" />
+            <div className="relative w-72 h-96 md:w-80 md:h-[28rem] rounded-2xl overflow-hidden border-2 border-primary/20 shadow-xl">
+              <img src={nabeelPortrait} alt="Muhammad Nabeel Shamim" className="w-full h-full object-cover" />
+            </div>
           </div>
         </motion.div>
       </div>

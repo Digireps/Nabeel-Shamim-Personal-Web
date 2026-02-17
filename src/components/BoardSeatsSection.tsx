@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const roles = [
   { company: "DigiReps", role: "Founder & CEO", period: "2023 – Present", url: "https://digireps.co", initial: "D" },
   { company: "Prodigy Solutions", role: "Founder", period: "Prior to DigiReps", url: "#", initial: "P" },
-  { company: "Forbes Business Council", role: "Official Member", period: "Present", url: "https://councils.forbes.com/profile/Muhammad-Nabeel-Shamim-Founder-CEO-DigiReps/f15d004f-bae0-4bee-8276-1af1b187609e", initial: "F" },
+  { company: "Forbes Business Council", role: "Official Member", period: "Present", url: "https://councils.forbes.com/profile/Muhammad-Nabeel-Shamim-Founder-CEO-DigiReps/f15d004f-bae0-4bee-8276-1af1b187609e", initial: "F", featured: true },
 ];
 
 const BoardSeatsSection = () => {
@@ -33,13 +33,19 @@ const BoardSeatsSection = () => {
               href={seat.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 p-5 rounded-xl border-l-4 border-l-primary card-clean card-clean-hover group"
+              className={`flex items-center gap-4 p-5 rounded-xl border-l-4 border-l-primary card-clean card-clean-hover group ${
+                (seat as any).featured ? "bg-primary/5 border border-primary/20" : ""
+              }`}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold font-heading text-sm shrink-0">
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold font-heading text-sm shrink-0 ${
+                (seat as any).featured
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-primary/10 border border-primary/20 text-primary"
+              }`}>
                 {seat.initial}
               </div>
               <div className="flex-1">
