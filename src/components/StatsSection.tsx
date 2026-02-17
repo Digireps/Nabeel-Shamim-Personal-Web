@@ -28,7 +28,6 @@ function useCountUp(target: number, duration: number, start: boolean) {
       if (!startTime) startTime = timestamp;
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // ease-out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.floor(eased * target));
 
@@ -46,12 +45,18 @@ function useCountUp(target: number, duration: number, start: boolean) {
   return count;
 }
 
-const StatItem = ({ stat, started }: { stat: Stat; started: boolean }) => {
+const StatItem = ({ stat, started, index }: { stat: Stat; started: boolean; index: number }) => {
   const count = useCountUp(stat.value, 2000, started);
 
   return (
-    <div className="flex flex-col items-center py-8 px-4">
-      <p className="text-4xl md:text-5xl lg:text-6xl font-black font-heading text-primary mb-2">
+    <motion.div
+      className="flex flex-col items-center py-8 px-4"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.15 }}
+    >
+      <p className="text-4xl md:text-5xl lg:text-6xl font-black font-heading text-primary mb-2 text-glow">
         {stat.prefix}
         {count}
         {stat.suffix}
@@ -59,7 +64,7 @@ const StatItem = ({ stat, started }: { stat: Stat; started: boolean }) => {
       <p className="text-sm md:text-base text-muted-foreground font-medium uppercase tracking-wider text-center">
         {stat.label}
       </p>
-    </div>
+    </motion.div>
   );
 };
 
@@ -68,18 +73,21 @@ const StatsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-16 md:py-20">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-16 md:py-20 relative">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] bg-primary/5 rounded-full blur-[100px]" />
+      </div>
+      <div className="max-w-6xl mx-auto px-6 relative">
         <motion.div
           ref={ref}
-          className="border-y-2 border-primary/20 grid grid-cols-2 lg:grid-cols-4 divide-x-0 lg:divide-x divide-primary/10 divide-y lg:divide-y-0 divide-primary/10"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          className="border-y border-primary/20 grid grid-cols-2 lg:grid-cols-4 divide-x-0 lg:divide-x divide-primary/10 divide-y lg:divide-y-0 divide-primary/10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
           {stats.map((stat, i) => (
-            <StatItem key={i} stat={stat} started={isInView} />
+            <StatItem key={i} stat={stat} started={isInView} index={i} />
           ))}
         </motion.div>
       </div>

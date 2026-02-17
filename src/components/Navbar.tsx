@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 
 const navItems = [
   { label: "About", href: "#introduction" },
@@ -13,7 +14,12 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
+    <motion.nav
+      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50"
+      initial={{ y: -80 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <a href="#" className="text-xl font-bold text-gradient font-heading">MNS</a>
         <div className="hidden md:flex items-center gap-8">
@@ -35,7 +41,12 @@ const Navbar = () => {
         </button>
       </div>
       {mobileOpen && (
-        <div className="md:hidden bg-background border-t border-border px-6 py-4 flex flex-col gap-4">
+        <motion.div
+          className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border/50 px-6 py-4 flex flex-col gap-4"
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          transition={{ duration: 0.3 }}
+        >
           {navItems.map((item) => (
             <a
               key={item.label}
@@ -46,9 +57,9 @@ const Navbar = () => {
               {item.label}
             </a>
           ))}
-        </div>
+        </motion.div>
       )}
-    </nav>
+    </motion.nav>
   );
 };
 

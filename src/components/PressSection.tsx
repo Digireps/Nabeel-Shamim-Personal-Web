@@ -37,8 +37,10 @@ const pressItems = [
 
 const PressSection = () => {
   return (
-    <section id="press" className="py-24 md:py-32">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="press" className="py-24 md:py-32 relative">
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 relative">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -81,7 +83,9 @@ const PressSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
+              whileHover={{ scale: 1.01 }}
             >
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute top-4 right-4 z-10">
                 <Badge className="bg-primary text-primary-foreground text-[10px] uppercase tracking-wider gap-1">
                   <Award size={12} />
@@ -117,9 +121,10 @@ const PressSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
+              whileHover={{ scale: 1.02 }}
             >
               <div className="aspect-video bg-secondary flex items-center justify-center relative">
-                <span className="text-3xl font-black font-heading text-primary/15">{item.source}</span>
+                <span className="text-3xl font-black font-heading text-primary/10">{item.source}</span>
                 <ExternalLink size={18} className="absolute top-3 right-3 text-muted-foreground/0 group-hover:text-primary transition-all duration-300" />
               </div>
               <div className="p-5">

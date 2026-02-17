@@ -13,7 +13,10 @@ const fadeIn = {
 const IntroductionSection = () => {
   return (
     <section id="introduction" className="py-24 md:py-32 relative">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-[1fr_2fr] gap-12 items-start">
+      {/* Subtle bg glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/3 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-[1fr_2fr] gap-12 items-start relative">
         <motion.div {...fadeIn}>
           <h2 className="text-4xl md:text-5xl font-black font-heading uppercase tracking-tight text-foreground/10 mb-4">
             Intro
@@ -52,7 +55,7 @@ const IntroductionSection = () => {
             </div>
             <Button
               variant="outline"
-              className="border-primary/60 text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-8 uppercase tracking-wider text-sm transition-all duration-300 ml-6"
+              className="border-primary/60 text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-8 uppercase tracking-wider text-sm transition-all duration-300 hover:shadow-[0_0_25px_hsla(174,72%,45%,0.2)] ml-6"
               asChild
             >
               <a href="https://digireps.co/aboutus" target="_blank" rel="noopener noreferrer">

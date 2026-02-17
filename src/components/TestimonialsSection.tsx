@@ -34,8 +34,10 @@ const TestimonialsSection = () => {
   const t = testimonials[current];
 
   return (
-    <section id="testimonials" className="py-24 md:py-32">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="testimonials" className="py-24 md:py-32 relative">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/3 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 relative">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -52,15 +54,23 @@ const TestimonialsSection = () => {
         </motion.div>
 
         <div className="max-w-3xl mx-auto">
-          <div className="card-clean rounded-2xl p-8 md:p-12 text-center">
-            <Quote size={48} className="text-primary/20 mx-auto mb-6" />
+          <motion.div
+            className="card-clean rounded-2xl p-8 md:p-12 text-center relative overflow-hidden"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
+            <Quote size={48} className="text-primary/20 mx-auto mb-6 relative z-10" />
             <AnimatePresence mode="wait">
               <motion.div
                 key={current}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.4 }}
+                className="relative z-10"
               >
                 <p className="text-xl md:text-2xl leading-relaxed text-foreground mb-8 min-h-[6rem]">
                   "{t.quote}"
@@ -73,10 +83,10 @@ const TestimonialsSection = () => {
               </motion.div>
             </AnimatePresence>
 
-            <div className="flex items-center justify-center gap-4 mt-8">
+            <div className="flex items-center justify-center gap-4 mt-8 relative z-10">
               <button
                 onClick={prev}
-                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
+                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:shadow-[0_0_15px_hsla(174,72%,45%,0.15)] transition-all duration-300"
               >
                 <ChevronLeft size={18} />
               </button>
@@ -86,19 +96,19 @@ const TestimonialsSection = () => {
                     key={i}
                     onClick={() => setCurrent(i)}
                     className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                      i === current ? "bg-primary scale-125" : "bg-border"
+                      i === current ? "bg-primary scale-125 shadow-[0_0_8px_hsla(174,72%,45%,0.4)]" : "bg-border hover:bg-muted-foreground/30"
                     }`}
                   />
                 ))}
               </div>
               <button
                 onClick={next}
-                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
+                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:shadow-[0_0_15px_hsla(174,72%,45%,0.15)] transition-all duration-300"
               >
                 <ChevronRight size={18} />
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
