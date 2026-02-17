@@ -1,80 +1,120 @@
-import { Linkedin, Globe, Award } from "lucide-react";
+import { motion } from "framer-motion";
+import { Linkedin, Globe, Award, ArrowUpRight, Mail, MessageSquare } from "lucide-react";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="border-t border-primary/20 bg-secondary/50">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-3 gap-12">
-          {/* Brand */}
-          <div>
-            <a href="#" className="text-2xl font-bold text-gradient font-heading">MNS</a>
-            <p className="text-muted-foreground mt-3 text-sm leading-relaxed max-w-xs">
-              Building global businesses from Pakistan, connecting world-class talent with ambitious companies.
+    <footer className="relative bg-background pt-24 overflow-hidden">
+      {/* Subtle Top Border Gradient */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-6">
+        {/* 1. Pre-Footer Call to Action */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-20 p-8 md:p-12 rounded-[2rem] bg-secondary/30 border border-border/50 flex flex-col md:flex-row items-center justify-between gap-8"
+        >
+          <div className="text-center md:text-left">
+            <h3 className="text-3xl font-black font-['Outfit'] tracking-tighter mb-2">
+              Ready to <span className="text-primary italic">Scale?</span>
+            </h3>
+            <p className="text-muted-foreground text-sm font-medium">
+              Let's discuss how to build your next high-performance remote team.
             </p>
-            <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary">
-              <Award size={14} />
-              Forbes Business Council Member
-            </div>
+          </div>
+          <a
+            href="mailto:contact@yourdomain.com"
+            className="group flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-105 transition-all duration-300"
+          >
+            Start a Conversation <MessageSquare size={18} />
+          </a>
+        </motion.div>
+
+        {/* 2. Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16">
+          {/* Brand & Mission */}
+          <div className="md:col-span-5 space-y-6">
+            <a href="#" className="text-3xl font-black font-['Helvetica'] tracking-tighter text-foreground group">
+              MNS<span className="text-primary group-hover:animate-pulse">.</span>
+            </a>
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-sm font-medium">
+              Building global businesses, connecting world-class talent with ambitious companies through strategic asynchronous execution.
+            </p>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-border shadow-sm text-[10px] font-bold uppercase tracking-widest text-black">
+  <Award size={14} className="text-primary" />
+  FORBES RECOGNIZED ENTREPRENEUR
+</div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold font-heading text-sm uppercase tracking-wider mb-4 text-foreground">Quick Links</h4>
-            <nav className="flex flex-col gap-3">
+          <div className="md:col-span-3">
+            <h4 className="font-bold font-['Outfit'] text-[10px] uppercase tracking-[0.3em] mb-8 text-primary/70">Navigation</h4>
+            <nav className="flex flex-col gap-4">
               {["About", "Ventures", "Roles", "Press"].map((link) => (
                 <a
                   key={link}
                   href={`#${link.toLowerCase().replace(/ /g, "-")}`}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium w-fit"
+                  className="text-sm text-muted-foreground hover:text-primary transition-all duration-300 flex items-center group font-semibold"
                 >
+                  <span className="h-px w-0 bg-primary group-hover:w-4 transition-all mr-0 group-hover:mr-2" />
                   {link}
                 </a>
               ))}
             </nav>
           </div>
 
-          {/* Connect */}
-          <div>
-            <h4 className="font-semibold font-heading text-sm uppercase tracking-wider mb-4 text-foreground">Connect</h4>
-            <div className="flex items-center gap-3 mb-4">
-              <a
-                href="https://www.linkedin.com/in/mnabeelshamim/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:shadow-[0_0_15px_hsla(174,72%,45%,0.2)] transition-all duration-300"
-              >
-                <Linkedin size={16} />
-              </a>
-              <a
-                href="https://digireps.co/aboutus"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:shadow-[0_0_15px_hsla(174,72%,45%,0.2)] transition-all duration-300"
-              >
-                <Globe size={16} />
-              </a>
+          {/* Social Presence */}
+          <div className="md:col-span-4">
+            <h4 className="font-bold font-['Outfit'] text-[10px] uppercase tracking-[0.3em] mb-8 text-primary/70">Global Connect</h4>
+            <div className="flex items-center gap-4 mb-8">
+              {[
+                { icon: Linkedin, url: "https://www.linkedin.com/in/mnabeelshamim/", label: "LinkedIn" },
+                { icon: Globe, url: "https://digireps.co", label: "DigiReps" },
+                { icon: Mail, url: "mailto:hello@nabeel.com", label: "Email" }
+              ].map((social, i) => (
+                <motion.a
+                  key={i}
+                  href={social.url}
+                  whileHover={{ y: -5 }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-2xl border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-white transition-all duration-300 shadow-sm"
+                  aria-label={social.label}
+                >
+                  <social.icon size={20} />
+                </motion.a>
+              ))}
             </div>
             <a
               href="https://digireps.co/aboutus"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-primary font-medium hover:underline"
+              className="group text-sm font-bold text-primary flex items-center gap-2 hover:gap-3 transition-all"
             >
-              Visit DigiReps →
+              Visit DigiReps <ArrowUpRight size={16} />
             </a>
           </div>
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-border/50">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-muted-foreground">
-            © 2026 Muhammad Nabeel Shamim. All rights reserved.
+      {/* 3. Refined Bottom Bar */}
+      <div className="border-t border-border/50 bg-secondary/10">
+        <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
+            © {currentYear} Nabeel Shamim. All Rights Reserved.
           </p>
-          <p className="text-xs text-muted-foreground">
-            🇵🇰 Built in Pakistan
-          </p>
+          <div className="flex items-center gap-6">
+            <span className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              Available for Consultations
+            </span>
+            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
+              Operated from UK
+            </span>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,76 +1,106 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Award } from "lucide-react";
-import nabeelPortrait from "@/assets/nabeel-portrait.png";
+import { Award, ArrowUpRight } from "lucide-react";
+import intro from "@/assets/intro.png";
 
 const fadeIn = {
-  initial: { opacity: 0, y: 30 },
+  initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-100px" },
-  transition: { duration: 0.6 },
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
 };
 
 const IntroductionSection = () => {
   return (
-    <section id="introduction" className="py-24 md:py-32 relative">
-      {/* Subtle bg glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/3 rounded-full blur-[120px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-[1fr_2fr] gap-12 items-start relative">
-        <motion.div {...fadeIn}>
-          <h2 className="text-4xl md:text-5xl font-black font-heading uppercase tracking-tight text-foreground/10 mb-4">
-            Intro
+    <section id="introduction" className="py-32 md:py-48 bg-[#050505] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* Section Header: High-Contrast Dark Mode */}
+        <motion.div {...fadeIn} className="mb-20">
+          <div className="flex items-center gap-4 mb-4">
+             <div className="h-px w-12 bg-primary/40" />
+             <span className="text-[10px] font-black tracking-[0.5em] text-primary uppercase">
+               The Founder
+             </span>
+          </div>
+          <h2 className="text-5xl md:text-7xl font-bold tracking-[-0.04em] text-white">
+            Driven by impact. <br />
+            <span className="text-zinc-600">Defined by results.</span>
           </h2>
-          <p className="text-sm uppercase tracking-[0.3em] text-primary font-semibold mb-2">
-            Introduction
-          </p>
-          <div className="w-16 h-1 bg-primary rounded-full" />
         </motion.div>
 
-        <div className="grid md:grid-cols-[2fr_1fr] gap-10 items-start">
-          <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0.1 }}>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary mb-6">
-              <Award size={14} />
-              Forbes Business Council Member
+        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+          
+          {/* Image Column: Deep Contrast Card */}
+          <motion.div 
+            {...fadeIn} 
+            className="lg:col-span-5 relative"
+            transition={{ duration: 1, delay: 0.1 }}
+          >
+            <div className="relative aspect-[4/6] rounded-[2.5rem] overflow-hidden bg-zinc-900 shadow-2xl border border-white/5">
+              <img 
+                src={intro} 
+                alt="Muhammad Nabeel Shamim" 
+                className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105 opacity-90 hover:opacity-100" 
+              />
+              {/* Floating Badge: Glassmorphism */}
+              <div className="absolute top-6 right-6 backdrop-blur-xl bg-black/40 border border-white/10 p-4 rounded-2xl shadow-2xl">
+                 <Award className="text-primary mb-2" size={20} />
+                 <p className="text-[10px] font-bold text-white uppercase tracking-widest leading-none">Forbes Member</p>
+              </div>
             </div>
-            <div className="border-l-4 border-primary/30 pl-6">
-              <p className="text-lg text-foreground leading-relaxed mb-6">
-                Muhammad Nabeel Shamim is a results-driven entrepreneur from
-                Karachi, Pakistan — a self-made millionaire by 32 with over a
-                decade of experience solving complex business challenges for U.S.
-                companies.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                As Founder &amp; CEO of DigiReps, he connects businesses with
-                pre-vetted remote professionals in sales, customer support, and
-                technology — delivering world-class talent at a fraction of the
-                cost while maintaining uncompromising quality.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-8">
-                Previously, he built Prodigy Solutions into a top-tier
-                business-development agency that helped multiple U.S. companies
-                achieve Inc. 5000 status. DigiReps itself became a million-dollar
-                venture within just 1.5 years of launch.
-              </p>
-            </div>
-            <Button
-              variant="outline"
-              className="border-primary/60 text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-8 uppercase tracking-wider text-sm transition-all duration-300 hover:shadow-[0_0_25px_hsla(174,72%,45%,0.2)] ml-6"
-              asChild
-            >
-              <a href="https://digireps.co/aboutus" target="_blank" rel="noopener noreferrer">
-                Learn More
-              </a>
-            </Button>
           </motion.div>
 
-          <motion.div
-            {...fadeIn}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
+          {/* Content Column: Editorial Grid */}
+          <motion.div 
+            {...fadeIn} 
+            className="lg:col-span-7 pt-4"
+            transition={{ duration: 1, delay: 0.2 }}
           >
-            <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden border border-border shadow-lg">
-              <img src={nabeelPortrait} alt="Muhammad Nabeel Shamim" className="w-full h-full object-cover" />
+            <div className="space-y-10">
+              <h3 className="text-3xl font-semibold tracking-tight text-zinc-100">
+                Muhammad Nabeel Shamim is a results-driven entrepreneur from Karachi, Pakistan.
+              </h3>
+              
+              <div className="grid md:grid-cols-2 gap-10">
+                <div className="space-y-4">
+                  <p className="text-lg text-zinc-400 leading-relaxed font-medium italic">
+                    "A self-made millionaire by 32 with over a decade of experience solving complex business challenges."
+                  </p>
+                  <p className="text-zinc-300/80 leading-relaxed">
+                    As Founder & CEO of DigiReps, he connects businesses with pre-vetted remote professionals in sales, customer support, and technology.
+                  </p>
+                </div>
+                
+                <div className="space-y-6 pt-1">
+                  <p className="text-zinc-500 leading-relaxed">
+                    Previously, he built Prodigy Solutions into a top-tier business-development agency that helped multiple U.S. companies achieve Inc. 5000 status.
+                  </p>
+                  {/* Stats Card: Dark Glass */}
+                  <div className="p-6 rounded-3xl bg-white/[0.03] border border-white/5 backdrop-blur-sm">
+                    <p className="text-sm font-bold text-zinc-400 mb-1">DigiReps Growth</p>
+                    <p className="text-3xl font-black text-primary tracking-tighter">$1.0M+ Venture</p>
+                    <p className="text-xs text-zinc-600 mt-2 uppercase tracking-widest font-bold">Achieved within 1.5 years</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-8 flex items-center gap-8">
+                <Button
+                  className="bg-primary hover:bg-primary/90 text-white rounded-full px-10 py-7 font-bold text-base transition-all shadow-lg shadow-blue-500/20 border-none"
+                  asChild
+                >
+                  <a href="https://digireps.co/aboutus" target="_blank" rel="noopener noreferrer">
+                    Explore DigiReps <ArrowUpRight className="ml-2 w-5 h-5" />
+                  </a>
+                </Button>
+                
+                <div className="hidden sm:block">
+                   <p className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-700">
+                     Establishing <br /> Global Standards
+                   </p>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

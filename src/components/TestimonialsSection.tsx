@@ -1,114 +1,148 @@
-import { useState } from "react";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { useState, useEffect, useCallback, useMemo } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
   {
-    quote: "Nabeel's ability to identify talent and build high-performing remote teams is unmatched. He transformed how our company approaches hiring.",
-    name: "Alex Rivera",
-    title: "CEO, U.S. Tech Startup",
+    quote: "Nabeel Company has been handling my lead gen for about a year now, delivering solid, high-quality leads. He checks in regularly via Slack, joins team meetings, and provides end-of-week reports. If you need someone who can generate leads and stay on top of communication, They do it all.",
+    name: "George Schwartz",
+    title: "Founder & CEO, Extenstion eComm",
   },
   {
     quote: "Working with DigiReps was a game-changer. Nabeel's hands-on leadership and commitment to quality delivered results far beyond our expectations.",
-    name: "Jessica Morgan",
-    title: "VP of Operations, SaaS Company",
+    name: "Alexander Toth",
+    title: "CEO, Clear Brands",
   },
   {
     quote: "Nabeel brings a rare combination of entrepreneurial vision and operational excellence. His insights on scaling businesses are invaluable.",
-    name: "Ryan Patel",
-    title: "Founder, E-Commerce Brand",
+    name: "Julie Sponagel",
+    title: "VP, Artisun Solar",
   },
   {
     quote: "A true leader who leads by example. Nabeel's work ethic and strategic thinking have made a lasting impact on everyone who works with him.",
-    name: "Samantha Lee",
-    title: "Director of Growth, Inc. 5000 Company",
+    name: "David Eames",
+    title: "Founder & CEO, BDRadio",
   },
 ];
 
 const TestimonialsSection = () => {
   const [current, setCurrent] = useState(0);
-
-  const prev = () => setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1));
-  const next = () => setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
-
+  const [isPaused, setIsPaused] = useState(false);
   const t = testimonials[current];
 
+  // Helper function to highlight specific keywords
+  const highlightText = (text) => {
+    if (!text) return text;
+    // Regex to find "DigiReps" or "Nabeel" (case insensitive 'i' removed to stay precise)
+    const parts = text.split(/(DigiReps|Nabeel)/g);
+    return parts.map((part, i) => 
+      part === "DigiReps" || part === "Nabeel" ? (
+        <span key={i} className="text-primary font-bold">
+          {part}
+        </span>
+      ) : (
+        part
+      )
+    );
+  };
+
+  const next = useCallback(() => {
+    setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
+  }, []);
+
+  const prev = () => setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1));
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      next();
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [next, isPaused]);
+
   return (
-    <section id="testimonials" className="py-24 md:py-32 relative">
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/3 rounded-full blur-[100px] pointer-events-none" />
+    <section 
+      id="testimonials" 
+      className="py-40 bg-[#050505] text-white overflow-hidden relative"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[400px] bg-primary/[0.03] rounded-full blur-[160px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-sm uppercase tracking-[0.3em] text-primary font-semibold mb-3">
-            Testimonials
-          </h2>
-          <p className="text-3xl md:text-4xl font-bold font-heading">
-            What Clients &amp; Peers Say
-          </p>
-        </motion.div>
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-24">
+          
+          <div className="lg:col-span-4 flex flex-col justify-between items-start">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="text-[10px] font-black tracking-[0.6em] text-primary uppercase mb-6 block">
+                Endorsements
+              </span>
+              <h2 className="text-6xl md:text-7xl font-light tracking-tighter leading-none text-white">
+                Voices of <br />
+                <span className="font-black italic text-zinc-800">Trust.</span>
+              </h2>
+            </motion.div>
 
-        <div className="max-w-3xl mx-auto">
-          <motion.div
-            className="card-clean rounded-2xl p-8 md:p-12 text-center relative overflow-hidden"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
-            <Quote size={48} className="text-primary/20 mx-auto mb-6 relative z-10" />
+            <div className="flex items-center gap-1 p-1 bg-white/[0.03] border border-white/5 rounded-full mt-20">
+              <button 
+                onClick={prev}
+                className="w-12 h-12 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors text-zinc-500 hover:text-white"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <div className="w-px h-6 bg-white/10" />
+              <button 
+                onClick={next}
+                className="w-12 h-12 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors text-zinc-500 hover:text-white"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
+          </div>
+
+          <div className="lg:col-span-8 relative">
             <AnimatePresence mode="wait">
               <motion.div
                 key={current}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.4 }}
-                className="relative z-10"
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="space-y-12"
               >
-                <p className="text-xl md:text-2xl leading-relaxed text-foreground mb-8 min-h-[6rem]">
-                  "{t.quote}"
+                <p className="text-3xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.15] tracking-tight text-zinc-100">
+                  "{highlightText(t.quote)}"
                 </p>
-                <div className="w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center text-primary font-bold font-heading text-lg bg-primary/10 border-2 border-primary/20">
-                  {t.name[0]}
+
+                <div className="flex items-center gap-8">
+                  <div className="h-px w-20 bg-primary/40" />
+                  <div>
+                    <h4 className="text-xl font-bold text-white tracking-tight">{t.name}</h4>
+                    <p className="text-xs uppercase tracking-[0.3em] text-zinc-500 font-bold mt-1">
+                      {t.title}
+                    </p>
+                  </div>
                 </div>
-                <p className="font-semibold font-heading text-primary">{t.name}</p>
-                <p className="text-sm text-muted-foreground">{t.title}</p>
               </motion.div>
             </AnimatePresence>
-
-            <div className="flex items-center justify-center gap-4 mt-8 relative z-10">
-              <button
-                onClick={prev}
-                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:shadow-[0_0_15px_hsla(174,72%,45%,0.15)] transition-all duration-300"
-              >
-                <ChevronLeft size={18} />
-              </button>
-              <div className="flex gap-2">
-                {testimonials.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrent(i)}
-                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                      i === current ? "bg-primary scale-125 shadow-[0_0_8px_hsla(174,72%,45%,0.4)]" : "bg-border hover:bg-muted-foreground/30"
-                    }`}
-                  />
-                ))}
+            
+            <div className="absolute -bottom-20 right-0 flex items-center gap-4">
+              <span className="text-[10px] font-black font-mono text-primary">0{current + 1}</span>
+              <div className="w-24 h-[1px] bg-zinc-800 relative">
+                <motion.div 
+                  className="absolute inset-0 bg-primary origin-left"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: (current + 1) / testimonials.length }}
+                  transition={{ duration: 0.5 }}
+                />
               </div>
-              <button
-                onClick={next}
-                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:shadow-[0_0_15px_hsla(174,72%,45%,0.15)] transition-all duration-300"
-              >
-                <ChevronRight size={18} />
-              </button>
+              <span className="text-[10px] font-black font-mono text-zinc-700">0{testimonials.length}</span>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
