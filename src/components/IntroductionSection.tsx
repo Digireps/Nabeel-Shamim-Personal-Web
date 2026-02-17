@@ -14,18 +14,18 @@ const IntroductionSection = () => {
     <section id="introduction" className="py-24 md:py-32 relative">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-[1fr_2fr] gap-12 items-start">
         <motion.div {...fadeIn}>
-          <h2 className="text-4xl md:text-5xl font-black font-['Outfit'] uppercase tracking-tight text-foreground/10 mb-4">
+          <h2 className="text-4xl md:text-5xl font-black font-heading uppercase tracking-tight text-foreground/10 mb-4">
             Intro
           </h2>
           <p className="text-sm uppercase tracking-[0.3em] text-primary font-semibold mb-2">
             Introduction
           </p>
-          <div className="w-16 h-0.5 bg-gradient-to-r from-primary to-transparent" />
+          <div className="w-16 h-1 bg-primary rounded-full" />
         </motion.div>
 
         <div className="grid md:grid-cols-[2fr_1fr] gap-10 items-start">
           <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0.1 }}>
-            <div className="border-l-2 border-primary/20 pl-6">
+            <div className="border-l-4 border-primary/30 pl-6">
               <p className="text-lg text-foreground leading-relaxed mb-6">
                 Muhammad Nabeel Shamim is a results-driven entrepreneur from
                 Karachi, Pakistan — a self-made millionaire by 32 with over a
@@ -47,7 +47,7 @@ const IntroductionSection = () => {
             </div>
             <Button
               variant="outline"
-              className="border-primary/60 text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-8 uppercase tracking-wider text-sm hover:glow-teal transition-all duration-300 ml-6"
+              className="border-primary/60 text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-8 uppercase tracking-wider text-sm transition-all duration-300 ml-6"
               asChild
             >
               <a href="https://digireps.co/aboutus" target="_blank" rel="noopener noreferrer">
@@ -61,9 +61,8 @@ const IntroductionSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="absolute inset-0 rounded-xl bg-primary/5 blur-[40px] pointer-events-none" />
-            <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden border border-border/50 glow-teal">
-              <img src={nabeelPortrait} alt="Muhammad Nabeel Shamim" className="w-full h-full object-cover -scale-x-100" />
+            <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden border border-border shadow-lg">
+              <img src={nabeelPortrait} alt="Muhammad Nabeel Shamim" className="w-full h-full object-cover" />
             </div>
           </motion.div>
         </div>
