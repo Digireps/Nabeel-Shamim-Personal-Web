@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Award } from "lucide-react";
 import nabeelPortrait from "@/assets/nabeel-portrait.png";
 
 const fadeIn = {
@@ -25,6 +26,10 @@ const IntroductionSection = () => {
 
         <div className="grid md:grid-cols-[2fr_1fr] gap-10 items-start">
           <motion.div {...fadeIn} transition={{ duration: 0.6, delay: 0.1 }}>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary mb-6">
+              <Award size={14} />
+              Forbes Business Council Member
+            </div>
             <div className="border-l-4 border-primary/30 pl-6">
               <p className="text-lg text-foreground leading-relaxed mb-6">
                 Muhammad Nabeel Shamim is a results-driven entrepreneur from
