@@ -111,9 +111,7 @@ const Footer = () => {
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               Available for Consultations
             </span>
-            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
-              Operated from UK
-            </span>
+            
           </div>
         </div>
       </div>
