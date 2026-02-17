@@ -1,87 +1,75 @@
 
 
-# UI Overhaul: Bold Modern Fonts, Unflipped Photos, Clean Professional Design
+# Major UI Enhancement: Stats Counter, Forbes Highlights, and Overall Polish
 
-Based on the client's feedback and your preferences, here's the complete redesign plan.
+## 1. New Animated Stats Counter Section
 
----
+Create a new `StatsSection.tsx` component placed immediately after the Ventures & Companies section. Inspired by the reference image, it will display four key metrics with animated counting numbers that increment when scrolled into view.
 
-## 1. Remove Image Flip
+Stats to display:
+- **$1M+** -- Revenue Generated
+- **150+** -- Clients Served  
+- **50+** -- Years Leadership Experience
+- **350+** -- Reps Placed
 
-Remove the `-scale-x-100` class from the portrait in both `HeroSection.tsx` and `IntroductionSection.tsx` so the photos appear in their original orientation.
+Implementation details:
+- Custom `useCountUp` hook using `requestAnimationFrame` for smooth number animation
+- Numbers animate from 0 to target value over ~2 seconds with easing
+- Triggered by Framer Motion's `whileInView` (fires once)
+- Clean grid layout with top/bottom border lines, vertical dividers between stats
+- Large bold Poppins numbers in teal, small DM Sans labels beneath
+- Fully responsive: 4 columns on desktop, 2x2 on tablet, stacked on mobile
 
----
+## 2. Highlight Forbes and FHM Recognitions
 
-## 2. Font Change: Switch to Poppins + DM Sans
+### Redesign PressSection to feature Forbes and FHM prominently:
+- Add a **featured row** at the top with two large highlight cards for the Forbes Council membership and FHM Pakistan feature
+- These cards will be larger (span 2 columns or full-width), with a teal accent left-border, bold source badge, and larger typography
+- The remaining three Forbes articles stay in a standard 3-column grid below
+- Add "FEATURED" badge on the highlight cards
+- Add a subtle Forbes "F" and FHM wordmark as large watermark text in the card backgrounds
 
-Replace **Outfit** (headings) and **Inter** (body) with:
-- **Poppins** (600-900 weights) for headings -- geometric, bold, modern
-- **DM Sans** (300-600 weights) for body text -- clean, highly readable
+### Add a Recognition Banner
+- Add a small "As Featured In" strip showing Forbes and FHM logos/wordmarks in a clean horizontal layout, placed either above the press grid or as part of the Introduction section
+- Use large muted text (like "FORBES" and "FHM") as social proof indicators
 
-Update the Google Fonts import in `index.css` and replace all `font-['Outfit']` references across every component with the new font family.
+## 3. Improved Footer
 
----
+Replace the minimal footer with a more substantial, professional footer:
+- **3-column layout**: Brand/tagline | Quick Links | Connect
+- Left column: MNS logo + short one-liner tagline + "Forbes Business Council Member" badge
+- Center column: Navigation links in a vertical list
+- Right column: Social links (LinkedIn, Globe) + email CTA
+- Bottom bar: Copyright + "Built in Pakistan" tagline
+- Subtle teal top-border accent instead of plain grey
 
-## 3. UI Improvements Across All Sections
+## 4. General UI Improvements
 
-### Global Styles (`index.css`)
-- Replace gradient backgrounds with clean solid whites
-- Remove glassmorphism (`.glass` class) -- replace with solid white cards with subtle shadows
-- Strengthen the teal accent system with bolder usage
-- Improve shadow/elevation system for cards
-- Clean up the ticker with better contrast
-
-### Navbar
-- Sharper styling, better font weight, improved hover states
-- Solid white background instead of translucent blur
-
-### Hero Section
-- Larger, bolder heading with Poppins
-- Better visual hierarchy between heading, subtitle, and CTA
-- Cleaner layout with stronger portrait presentation (solid border/shadow instead of glow)
-- Remove faint "MNS" watermark text behind the portrait
+### Hero Section Polish
+- Add a subtle animated gradient dot pattern or geometric shape behind the portrait for visual interest
+- Make the "NABEEL SHAMIM" text even more impactful with letter-spacing adjustments
 
 ### Introduction Section
-- Cleaner card-like layout with better spacing
-- Stronger typography hierarchy
+- Add a "Forbes Business Council Member" pill badge near the intro text
+- Slightly larger paragraph text for better readability
 
-### Ventures/Investments Section
-- Replace glassmorphism cards with clean white cards + box shadows
-- Better hover states with subtle teal accent borders
-
-### Press Section
-- Cleaner card design with better image placeholders
-- Remove gradient backgrounds from cards, use solid teal/grey tones
-- Better typography sizing
-
-### Board Seats / Roles Section
-- Cleaner list items with better spacing
-- Stronger left-border accent
-
-### Testimonials Section
-- Replace glass card with clean white card + shadow
-- Better quote typography
-- Cleaner navigation dots
-
-### Footer
-- Solid border top instead of gradient border
-- Better spacing and layout
-- Update copyright year to 2026
+### Board Seats / Roles Section  
+- Add a highlighted badge for the Forbes Council row to make it stand out (e.g., teal background instead of white)
 
 ---
 
 ## Technical Details
 
-**Files to modify:**
-- `src/index.css` -- font imports, utility classes, remove gradients/glass
-- `src/components/HeroSection.tsx` -- remove flip, update fonts, clean layout
-- `src/components/IntroductionSection.tsx` -- remove flip, update fonts
-- `src/components/Navbar.tsx` -- update fonts, solid background
-- `src/components/InvestmentsSection.tsx` -- update fonts, card styles
-- `src/components/PressSection.tsx` -- update fonts, card styles
-- `src/components/BoardSeatsSection.tsx` -- update fonts, list styles
-- `src/components/TestimonialsSection.tsx` -- update fonts, card styles
-- `src/components/Footer.tsx` -- update fonts, clean border
+**New files:**
+- `src/components/StatsSection.tsx` -- animated counter section with custom counting hook
 
-**No new dependencies needed** -- Poppins and DM Sans are loaded via Google Fonts CDN.
+**Files to modify:**
+- `src/pages/Index.tsx` -- add StatsSection import and place it after InvestmentsSection
+- `src/components/PressSection.tsx` -- redesign with featured highlight cards for Forbes/FHM
+- `src/components/Footer.tsx` -- complete redesign with 3-column layout and recognition badge
+- `src/components/BoardSeatsSection.tsx` -- highlight Forbes Council row
+- `src/components/HeroSection.tsx` -- minor visual enhancements
+- `src/components/IntroductionSection.tsx` -- add Forbes badge
+
+**No new dependencies needed** -- uses Framer Motion (already installed) for scroll-triggered counting animation via `useInView` and `animate`.
 
