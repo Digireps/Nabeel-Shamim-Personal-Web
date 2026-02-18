@@ -67,12 +67,16 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
         >
-          <Button className="rounded-full bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg font-semibold shadow-xl transition-all hover:scale-105 active:scale-95">
-            Contact Nabeel
-          </Button>
+          {/* FIX: Wrapped Button in anchor tag pointing to #contact */}
+          <a href="#contact">
+            <Button className="rounded-full bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg font-semibold shadow-xl transition-all hover:scale-105 active:scale-95 border-none cursor-pointer">
+              Contact Nabeel
+            </Button>
+          </a>
           
           <div className="flex items-center gap-6">
-            <a href="#about" className="flex items-center gap-2 text-primary font-semibold text-lg hover:underline group">
+            {/* FIX: Updated href to #introduction to match your About section ID */}
+            <a href="#introduction" className="flex items-center gap-2 text-primary font-semibold text-lg hover:underline group">
               Learn more <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             
@@ -94,7 +98,7 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* FIXED PORTRAIT: No cropping, soft fade integration */}
+        {/* FIXED PORTRAIT */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}

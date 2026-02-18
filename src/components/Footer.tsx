@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Linkedin, Globe, Award, ArrowUpRight, Mail, MessageSquare } from "lucide-react";
+import { Linkedin, Globe, Award, ArrowUpRight, Mail } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,30 +10,7 @@ const Footer = () => {
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6">
-        {/* 1. Pre-Footer Call to Action */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-20 p-8 md:p-12 rounded-[2rem] bg-secondary/30 border border-border/50 flex flex-col md:flex-row items-center justify-between gap-8"
-        >
-          <div className="text-center md:text-left">
-            <h3 className="text-3xl font-black font-['Outfit'] tracking-tighter mb-2">
-              Ready to <span className="text-primary italic">Scale?</span>
-            </h3>
-            <p className="text-muted-foreground text-sm font-medium">
-              Let's discuss how to build your next high-performance remote team.
-            </p>
-          </div>
-          <a
-            href="mailto:contact@yourdomain.com"
-            className="group flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-white font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-105 transition-all duration-300"
-          >
-            Start a Conversation <MessageSquare size={18} />
-          </a>
-        </motion.div>
-
-        {/* 2. Main Footer Grid */}
+        {/* 1. Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16">
           {/* Brand & Mission */}
           <div className="md:col-span-5 space-y-6">
@@ -44,9 +21,9 @@ const Footer = () => {
               Building global businesses, connecting world-class talent with ambitious companies through strategic asynchronous execution.
             </p>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-border shadow-sm text-[10px] font-bold uppercase tracking-widest text-black">
-  <Award size={14} className="text-primary" />
-  FORBES RECOGNIZED ENTREPRENEUR
-</div>
+              <Award size={14} className="text-primary" />
+              FORBES RECOGNIZED ENTREPRENEUR
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -100,7 +77,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* 3. Refined Bottom Bar */}
+      {/* 2. Refined Bottom Bar */}
       <div className="border-t border-border/50 bg-secondary/10">
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
@@ -111,7 +88,6 @@ const Footer = () => {
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               Available for Consultations
             </span>
-            
           </div>
         </div>
       </div>
