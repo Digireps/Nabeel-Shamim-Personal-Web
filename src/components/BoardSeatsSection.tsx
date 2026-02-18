@@ -34,7 +34,7 @@ const roles = [
     status: "Active"
   },
   { 
-    company: "Pakistan Software Export Board (PSEB)", 
+    company: "PSEB", 
     role: "Official Member", 
     period: "Present", 
     url: "https://techdestination.com/about-us/", 
