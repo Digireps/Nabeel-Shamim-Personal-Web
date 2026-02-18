@@ -11,19 +11,28 @@ const ContactSection = () => {
     e.preventDefault();
     setStatus("sending");
 
-    const { error } = await supabase.from("contact_submissions").insert({
+    const trimmed = {
       name: form.name.trim(),
       email: form.email.trim(),
       message: form.message.trim(),
-    });
+    };
+
+    // Save to database
+    const { error } = await supabase.from("contact_submissions").insert(trimmed);
 
     if (error) {
       setStatus("error");
       setTimeout(() => setStatus("idle"), 3000);
-    } else {
-      setStatus("sent");
-      setForm({ name: "", email: "", message: "" });
+      return;
     }
+
+    // Send email notification (fire-and-forget, don't block success)
+    supabase.functions.invoke("send-contact-email", {
+      body: trimmed,
+    }).catch(console.error);
+
+    setStatus("sent");
+    setForm({ name: "", email: "", message: "" });
   };
 
   return (
