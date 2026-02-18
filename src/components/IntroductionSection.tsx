@@ -80,7 +80,7 @@ const IntroductionSection = () => {
                   
                   {/* Stats Card */}
                   <div className="p-6 rounded-3xl bg-white/[0.03] border border-white/5 backdrop-blur-sm">
-                    <p className="text-sm font-bold text-zinc-400 mb-1">Top Ventures</p>
+                    <p className="text-sm font-bold text-zinc-400 mb-1">Top Venture</p>
                     <p className="text-3xl font-black text-primary tracking-tighter">DigiReps</p>
                     <p className="text-xs text-zinc-600 mt-2 uppercase tracking-widest font-bold">Currently valued at $2.5M</p>
                   </div>
@@ -96,7 +96,6 @@ const IntroductionSection = () => {
                     Explore DigiReps <ArrowUpRight className="ml-2 w-5 h-5" />
                   </a>
                 </Button>
-                
                 <div className="hidden sm:block">
                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-700 leading-relaxed">
                      Transforming <br /> Global Talent
