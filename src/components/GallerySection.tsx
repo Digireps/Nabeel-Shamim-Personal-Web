@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
+// Updated list: 1-12 in .png format
 const galleryImages = [
-  "/gallery/1.jpeg", "/gallery/2.jpeg", "/gallery/3.jpeg", "/gallery/4.jpeg", "/gallery/5.jpeg",
-  "/gallery/6.jpeg", "/gallery/7.jpeg", "/gallery/8.jpeg", "/gallery/9.jpeg", "/gallery/10.jpeg",
-  "/gallery/11.jpeg", "/gallery/12.jpeg", "/gallery/13.jpeg", "/gallery/14.jpeg", "/gallery/15.jpeg",
-  "/gallery/16.jpeg", "/gallery/17.jpeg", "/gallery/18.jpeg", "/gallery/19.jpeg", "/gallery/20.jpeg",
+  "/gallery/1.png", "/gallery/2.png", "/gallery/3.png", "/gallery/4.png", 
+  "/gallery/5.png", "/gallery/6.png", "/gallery/7.png", "/gallery/8.png", 
+  "/gallery/9.png", "/gallery/10.png", "/gallery/11.png", "/gallery/12.png"
 ];
 
 const GallerySection = () => {
@@ -42,11 +42,14 @@ const GallerySection = () => {
 
         <motion.div
           className="flex gap-8 px-4"
-        
-          animate={{ x: [0, "-30%"] }} 
+          /* FIX: Changed to "-50%" to match the duplicated array. 
+             This ensures the animation resets at the exact point the 
+             second set of images replaces the first set, preventing blank gaps.
+          */
+          animate={{ x: [0, "-50%"] }} 
           transition={{
             ease: "linear",
-            duration: 80,
+            duration: 60, // Slightly faster for 12 images to maintain a premium crawl
             repeat: Infinity,
           }}
           whileHover={{ animationPlayState: "paused" }}
@@ -63,6 +66,9 @@ const GallerySection = () => {
                 src={src}
                 alt={`Gallery image ${index}`}
                 className="w-full h-full object-cover grayscale-[0.3] group-hover/item:grayscale-0 transition-all duration-1000 ease-out"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/gallery/placeholder.png';
+                }}
               />
             </motion.div>
           ))}
