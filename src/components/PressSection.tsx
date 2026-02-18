@@ -1,6 +1,24 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Award } from "lucide-react";
+import { ExternalLink, Award, Play, Mic } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+
+const podcasts = [
+  {
+    title: "Building DigiReps & Scaling Sales Teams",
+    videoId: "eM5UImLqFU8",
+    url: "https://youtu.be/eM5UImLqFU8?si=u13McsNzsLWKCcEy",
+  },
+  {
+    title: "Entrepreneurship & Global Business Strategy",
+    videoId: "GUyYtigYkH4",
+    url: "https://youtu.be/GUyYtigYkH4?si=lYXZs2gU8Q--44Fz",
+  },
+  {
+    title: "Leadership, Technology & the Future of Work",
+    videoId: "jbCObAiOZiQ",
+    url: "https://youtu.be/jbCObAiOZiQ?si=bMM-DvA7D9Dd1HG_",
+  },
+];
 
 const featuredItems = [
   {
@@ -102,6 +120,68 @@ const PressSection = () => {
                 </div>
               </div>
             </motion.a>
+          ))}
+        </div>
+
+        {/* Podcasts & Interviews */}
+        <motion.div
+          className="text-center mt-24 mb-14"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <Mic size={18} className="text-primary" />
+            <h3 className="text-sm uppercase tracking-[0.3em] text-primary font-semibold">
+              On Air
+            </h3>
+          </div>
+          <p className="text-3xl md:text-4xl font-black tracking-tight text-foreground">
+            Podcasts & Interviews
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {podcasts.map((pod, i) => (
+            <motion.div
+              key={i}
+              className="group relative rounded-2xl overflow-hidden border border-border bg-card hover:border-primary/30 transition-all duration-500"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              whileHover={{ y: -6 }}
+            >
+              {/* Embedded YouTube player */}
+              <div className="relative aspect-video">
+                <iframe
+                  src={`https://www.youtube.com/embed/${pod.videoId}`}
+                  title={pod.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Card info */}
+              <div className="p-5">
+                <h4 className="font-bold text-foreground text-sm leading-snug mb-3 group-hover:text-primary transition-colors">
+                  {pod.title}
+                </h4>
+                <a
+                  href={pod.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <Play size={12} className="fill-current" />
+                  <span className="text-[10px] font-black uppercase tracking-widest">Watch on YouTube</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
