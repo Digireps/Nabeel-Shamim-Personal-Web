@@ -26,12 +26,42 @@ const featuredItems = [
     source: "Forbes Council",
     watermark: "FORBES",
     url: "https://councils.forbes.com/profile/Muhammad-Nabeel-Shamim-Founder-CEO-DigiReps/f15d004f-bae0-4bee-8276-1af1b187609e",
+    featured: true, // Tag remains
   },
   {
     title: "Muhammad Nabeel Shamim: A Name to Watch in Entrepreneurship & Technology",
     source: "FHM Pakistan",
     watermark: "FHM",
     url: "https://www.fhmpakistan.com/muhammad-nabeel-shamim-a-name-to-watch-in-entrepreneurship-technology-global/",
+    featured: true, // Tag remains
+  },
+  {
+    title: "Top 100 Entrepreneurs",
+    source: "CXO Global Forum",
+    watermark: "CXO",
+    url: "https://www.cxoglobal.com",
+    featured: false, // Tag removed
+  },
+  {
+    title: "Muhammad Nabeel Shamim Makes It To Forbes",
+    source: "Business Bytes",
+    watermark: "BYTES",
+    url: "https://businessbytes.pk/blog/2025/09/22/pakistani-entrepreneur-muhammad-nabeel-shamim-makes-it-to-forbes/",
+    featured: false, // Tag removed
+  },
+  {
+    title: "Featured in Startup Pakistan’s Entrepreneur Spotlight",
+    source: "Startup Pakistan",
+    watermark: "STARTUP",
+    url: "https://startuppakistan.com.pk/pakistani-entrepreneur-muhammad-nabeel-shamim-makes-it-to-forbes/",
+    featured: false, // Tag removed
+  },
+  {
+    title: "Featured in PRWeb’s Press Release on Forbes Induction",
+    source: "PRWeb",
+    watermark: "PRWEB",
+    url: "https://www.prweb.com/releases/digireps-founder--ceo-muhammad-n-shamim-inducted-into-forbes-business-council-302574419.html",
+    featured: false, // Tag removed
   },
 ];
 
@@ -58,7 +88,7 @@ const PressSection = () => {
           </p>
         </motion.div>
 
-        {/* As Featured In strip */}
+        {/* As Featured In strip - High visibility brands */}
         <motion.div
           className="flex items-center justify-center gap-10 mb-14"
           initial={{ opacity: 0 }}
@@ -80,7 +110,7 @@ const PressSection = () => {
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex flex-col justify-end p-8 md:p-12 rounded-[2.5rem] bg-white/[0.03] border border-white/5 hover:border-primary/30 transition-all duration-500 overflow-hidden min-h-[300px]"
+              className="group relative flex flex-col justify-end p-8 md:p-12 rounded-[2.5rem] bg-white/[0.03] border border-white/5 hover:border-primary/30 transition-all duration-500 overflow-hidden min-h-[350px]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -90,32 +120,35 @@ const PressSection = () => {
               {/* Radial Hover Effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <div className="absolute top-6 right-6 z-10">
-                <Badge className="bg-primary text-black font-black text-[10px] uppercase tracking-wider gap-1 border-none px-3 py-1">
-                  <Award size={12} />
-                  Featured
-                </Badge>
-              </div>
+              {/* Badge conditional rendering */}
+              {item.featured && (
+                <div className="absolute top-8 right-8 z-10">
+                  <Badge className="bg-primary text-black font-black text-[10px] uppercase tracking-wider gap-1 border-none px-4 py-1.5 shadow-lg shadow-primary/20">
+                    <Award size={12} />
+                    Featured
+                  </Badge>
+                </div>
+              )}
 
               <div className="relative z-10">
-                {/* Watermark: Adjusted for Dark Theme */}
-                <span className="absolute -top-12 -right-8 text-[10rem] font-black text-white/[0.02] group-hover:text-primary/[0.05] select-none pointer-events-none transition-all duration-700 leading-none">
+                {/* Watermark */}
+                <span className="absolute -top-16 -right-8 text-[12rem] font-black text-white/[0.02] group-hover:text-primary/[0.05] select-none pointer-events-none transition-all duration-700 leading-none">
                   {item.watermark}
                 </span>
 
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="h-px w-6 bg-primary/60 group-hover:w-10 transition-all duration-500" />
-                  <p className="text-xs uppercase tracking-[0.2em] text-primary font-bold">
+                  <div className="h-px w-8 bg-primary/60 group-hover:w-14 transition-all duration-500" />
+                  <p className="text-xs uppercase tracking-[0.3em] text-primary font-bold">
                     {item.source}
                   </p>
                 </div>
 
-                <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white group-hover:text-primary transition-colors leading-tight pr-10">
+                <h3 className="text-2xl md:text-4xl font-bold tracking-tight text-white group-hover:text-primary transition-colors leading-tight pr-10">
                   {item.title}
                 </h3>
                 
-                <div className="mt-6 flex items-center gap-2 text-zinc-500 group-hover:text-white transition-colors">
-                  <span className="text-[10px] font-black uppercase tracking-widest">Read Article</span>
+                <div className="mt-8 flex items-center gap-2 text-zinc-500 group-hover:text-white transition-colors">
+                  <span className="text-[10px] font-black uppercase tracking-widest">Verify Publication</span>
                   <ExternalLink size={14} className="group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
@@ -125,7 +158,7 @@ const PressSection = () => {
 
         {/* Podcasts & Interviews */}
         <motion.div
-          className="text-center mt-24 mb-14"
+          className="text-center mt-32 mb-14"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -137,7 +170,7 @@ const PressSection = () => {
               On Air
             </h3>
           </div>
-          <p className="text-3xl md:text-4xl font-black tracking-tight text-foreground">
+          <p className="text-3xl md:text-4xl font-black tracking-tight text-white">
             Podcasts & Interviews
           </p>
         </motion.div>
@@ -146,14 +179,13 @@ const PressSection = () => {
           {podcasts.map((pod, i) => (
             <motion.div
               key={i}
-              className="group relative rounded-2xl overflow-hidden border border-border bg-card hover:border-primary/30 transition-all duration-500"
+              className="group relative rounded-[2rem] overflow-hidden border border-white/5 bg-white/[0.02] hover:border-primary/30 transition-all duration-500"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ y: -6 }}
             >
-              {/* Embedded YouTube player */}
               <div className="relative aspect-video">
                 <iframe
                   src={`https://www.youtube.com/embed/${pod.videoId}`}
@@ -165,16 +197,15 @@ const PressSection = () => {
                 />
               </div>
 
-              {/* Card info */}
-              <div className="p-5">
-                <h4 className="font-bold text-foreground text-sm leading-snug mb-3 group-hover:text-primary transition-colors">
+              <div className="p-6">
+                <h4 className="font-bold text-white text-base leading-snug mb-4 group-hover:text-primary transition-colors">
                   {pod.title}
                 </h4>
                 <a
                   href={pod.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                  className="inline-flex items-center gap-2 text-zinc-500 hover:text-primary transition-colors"
                 >
                   <Play size={12} className="fill-current" />
                   <span className="text-[10px] font-black uppercase tracking-widest">Watch on YouTube</span>
