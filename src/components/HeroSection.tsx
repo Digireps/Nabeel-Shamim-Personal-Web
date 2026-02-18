@@ -32,9 +32,15 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
           className="mb-6"
         >
-          <span className="text-[12px] font-bold tracking-[0.3em] text-zinc-400 uppercase">
-            Forbes Recognized & Award-Winning Entrepreneur
-          </span>
+          <span className="text-[12px] font-bold tracking-[0.2em] sm:tracking-[0.3em] text-zinc-400 uppercase text-center sm:text-left leading-relaxed">
+  <span className="block sm:inline">
+    Forbes Recognized & Award-Winning
+  </span>
+  <span className="block sm:inline sm:ml-2">
+    Entrepreneur
+  </span>
+</span>
+
         </motion.div>
 
         {/* Main Headline */}

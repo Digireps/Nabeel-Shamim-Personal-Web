@@ -15,7 +15,6 @@ const IntroductionSection = () => {
   return (
     <section id="introduction" className="py-32 md:py-48 bg-[#050505] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        
         {/* Section Header */}
         <motion.div {...fadeIn} className="mb-20">
           <div className="flex items-center gap-4 mb-4">
@@ -45,7 +44,8 @@ const IntroductionSection = () => {
                 alt="Muhammad Nabeel Shamim" 
                 className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105 opacity-90 hover:opacity-100" 
               />
-              <div className="absolute top-6 right-6 backdrop-blur-xl bg-black/40 border border-white/10 p-4 rounded-2xl shadow-2xl">
+              <div className="absolute top-4 right-4 md:top-6 md:right-6 backdrop-blur-xl bg-black/40 border border-white/10 p-3 md:p-4 rounded-2xl shadow-2xl">
+
                  <Award className="text-primary mb-2" size={20} />
                  <p className="text-[10px] font-bold text-white uppercase tracking-widest leading-none">Forbes Member</p>
               </div>
@@ -66,10 +66,13 @@ const IntroductionSection = () => {
               <div className="grid md:grid-cols-2 gap-10">
                 <div className="space-y-5">
                   <p className="text-lg text-zinc-400 leading-relaxed font-medium italic">
-                    "At only 25, he has made a fortune not just for himself but for the clients he serves through relentless execution."
+                    "While coming from underprivileged beginnings, by 28, Muhammad had already made a fortune not just for himself but for the clients he served through strategic and relentless execution."
                   </p>
                   <p className="text-zinc-300/80 leading-relaxed text-sm">
                     As Founder & CEO of DigiReps, Nabeel Shamim is on a mission to transform how businesses leverage remote talent. By identifying hiring inefficiencies, he built an ecosystem that delivers elite sales, support, and tech professionals while drastically reducing operational overhead.
+                  </p>
+                  <p className="text-zinc-300/80 leading-relaxed text-sm">
+                    Nabeel also founded several other ventures. He invests, consults, and mentor startups as well.
                   </p>
                 </div>
                 

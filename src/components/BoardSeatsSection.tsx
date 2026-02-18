@@ -20,27 +20,30 @@ const roles = [
   { 
     company: "Prodigy Solutions", 
     role: "Founder", 
-    period: "Prior to DigiReps", 
+    period: "2016 - Present", 
     url: "https://www.prodisols.com/", 
     status: "Strategic"
   },
-
-  // Additional roles can be added here in the future
    { 
     company: "CxO Global Forum", 
     role: "Official Member", 
     period: "Present", 
     url: "https://cxoforum.global/", 
-    status: "Active"
+    status: "Current"
   },
-
-//In Media, after press & publications add Podcasts & Interviews section where add these videos which is also displayed and playable and by clicking user get redirected to the original source of the video on youtube or spotify or apple podcasts etc. Videos: https://youtu.be/eM5UImLqFU8?si=u13McsNzsLWKCcEy    2nd,   https://youtu.be/GUyYtigYkH4?si=lYXZs2gU8Q--44Fz 3rd, https://youtu.be/jbCObAiOZiQ?si=bMM-DvA7D9Dd1HG_
   { 
     company: "PSEB", 
     role: "Official Member", 
     period: "Present", 
     url: "https://techdestination.com/about-us/", 
     status: "Current"
+  },
+   { 
+    company: "Digify Global", 
+    role: "Founder & CEO", 
+    period: "2021 - Present", 
+    url: "https://digifyglobal.com/", 
+    status: "Strategic"
   },
 ];
 

@@ -3,10 +3,10 @@ import { motion, useInView } from "framer-motion";
 import { Activity, Users, ShieldCheck, Briefcase, ArrowUpRight } from "lucide-react";
 
 const stats = [
-  { prefix: "$", value: 100, suffix: "M+", label: "Revenue Generated", icon: Activity, size: "lg" },
+  { prefix: "$", value: 100, suffix: "M+", label: "Revenue Generated For Businesses and Clients", icon: Activity, size: "lg" },
   { value: 1000, suffix: "+", label: "Clients Served", icon: Users, size: "md" },
   { value: 12, suffix: "+", label: "Years Leadership", icon: ShieldCheck, size: "sm" },
-  { value: 100, suffix: "+", label: "Revenue Generated For Businesses and Clients", icon: Briefcase, size: "sm" },
+  { value: 100, suffix: "+", label: "Livelihoods Sustained", icon: Briefcase, size: "sm" },
 ];
 
 function useCountUp(target: number, duration: number, start: boolean) {
