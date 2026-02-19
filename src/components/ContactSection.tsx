@@ -5,9 +5,9 @@ import { supabase } from "@/integrations/supabase/client";
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [status, setStatus] = useState("idle");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("sending");
 
@@ -26,23 +26,26 @@ const ContactSection = () => {
     }
 
     supabase.functions.invoke("send-contact-email", { 
-  body: {
-    ...trimmed,
-    from: "Contact Form <contact@nabeelshamim.com>",
-    to: ["Muhammad@digireps.co"],
-    subject: `New Contact: ${trimmed.name}`
-  } 
-}).catch(console.error);
+      body: {
+        ...trimmed,
+        from: "Contact Form <contact@nabeelshamim.com>",
+        to: ["Muhammad@digireps.co"],
+        subject: `New Contact: ${trimmed.name}`
+      } 
+    }).catch(console.error);
 
     setStatus("sent");
     setForm({ name: "", email: "", message: "" });
   };
 
   return (
-    <section id="contact" className="relative py-48 bg-[#050505] overflow-hidden border-t border-white/5">
+    <section id="contact" className="relative py-48 bg-[#09090b] overflow-hidden border-t border-white/[0.05]">
+      {/* RICH UI: Background ambient glow for improved contrast */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/[0.03] rounded-full blur-[140px] pointer-events-none" />
+
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         
-        {/* Header: Understated & Authoritative */}
+        {/* Header: Centered & Minimalist */}
         <div className="grid md:grid-cols-2 gap-12 items-end mb-32">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -65,7 +68,7 @@ const ContactSection = () => {
             transition={{ duration: 1, delay: 0.2 }}
             className="md:text-right"
           >
-            <p className="text-zinc-500 text-lg md:text-xl font-medium max-w-sm md:ml-auto leading-tight">
+            <p className="text-zinc-400 text-lg md:text-xl font-medium max-w-sm md:ml-auto leading-tight">
               Strategic partnerships begin with a simple message. Reach out for consultations or global ventures.
             </p>
           </motion.div>
@@ -75,7 +78,7 @@ const ContactSection = () => {
           {status === "sent" ? (
             <motion.div
               key="success"
-              className="py-24 border-t border-white/10"
+              className="py-24 border-t border-white/[0.1]"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
             >
@@ -83,12 +86,12 @@ const ContactSection = () => {
                 <CheckCircle size={28} strokeWidth={3} />
                 <h4 className="text-2xl font-black tracking-tight text-white uppercase italic">Confirmed.</h4>
               </div>
-              <p className="text-zinc-400 text-xl font-medium max-w-md leading-snug">
-                Your transmission has been logged. Expect a formal response to your digital address shortly.
+              <p className="text-zinc-300 text-xl font-medium max-w-md leading-snug">
+                Your transmission has been logged. Expect a formal response shortly.
               </p>
               <button
                 onClick={() => setStatus("idle")}
-                className="mt-12 text-[10px] font-black uppercase tracking-[0.5em] text-zinc-600 hover:text-white transition-colors"
+                className="mt-12 text-[10px] font-black uppercase tracking-[0.5em] text-zinc-500 hover:text-white transition-colors"
               >
                 Reset Form
               </button>
@@ -105,51 +108,51 @@ const ContactSection = () => {
               <div className="grid md:grid-cols-2 gap-x-24 gap-y-24">
                 {/* Field: Name */}
                 <div className="group relative">
-                  <label className="text-[9px] font-black uppercase tracking-[0.5em] text-zinc-600 mb-2 block group-focus-within:text-primary transition-colors">
-                    01. Identity
+                  {/* Label: Optimized contrast for readability */}
+                  <label className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 mb-2 block group-focus-within:text-primary transition-colors">
+                    01. Full Name
                   </label>
                   <input
                     type="text"
                     required
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full bg-transparent border-b border-white/10 py-6 text-white placeholder:text-zinc-900 focus:outline-none focus:border-primary transition-all text-2xl font-medium tracking-tight"
-                    placeholder="Full Name"
+                    className="w-full bg-transparent border-b border-white/[0.2] py-6 text-white placeholder:text-zinc-800 focus:outline-none focus:border-primary transition-all text-2xl font-medium tracking-tight"
+                    placeholder="Enter name"
                   />
                 </div>
 
                 {/* Field: Email */}
                 <div className="group relative">
-                  <label className="text-[9px] font-black uppercase tracking-[0.5em] text-zinc-600 mb-2 block group-focus-within:text-primary transition-colors">
-                    02. Correspondence
+                  <label className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 mb-2 block group-focus-within:text-primary transition-colors">
+                    02. Email Address
                   </label>
                   <input
                     type="email"
                     required
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full bg-transparent border-b border-white/10 py-6 text-white placeholder:text-zinc-900 focus:outline-none focus:border-primary transition-all text-2xl font-medium tracking-tight"
+                    className="w-full bg-transparent border-b border-white/[0.2] py-6 text-white placeholder:text-zinc-800 focus:outline-none focus:border-primary transition-all text-2xl font-medium tracking-tight"
                     placeholder="name@email.com"
                   />
                 </div>
               </div>
 
-              {/* Field: Message */}
+              {/* Field: Message (Subject/Inquiry) */}
               <div className="group relative">
-                <label className="text-[9px] font-black uppercase tracking-[0.5em] text-zinc-600 mb-2 block group-focus-within:text-primary transition-colors">
-                  03. Strategic Brief
+                <label className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 mb-2 block group-focus-within:text-primary transition-colors">
+                  03. Strategic Inquiry / Message
                 </label>
                 <textarea
                   required
                   rows={2}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full bg-transparent border-b border-white/10 py-6 text-white placeholder:text-zinc-900 focus:outline-none focus:border-primary transition-all text-2xl font-medium tracking-tight resize-none"
+                  className="w-full bg-transparent border-b border-white/[0.2] py-6 text-white placeholder:text-zinc-800 focus:outline-none focus:border-primary transition-all text-2xl font-medium tracking-tight resize-none"
                   placeholder="How can I assist your vision?"
                 />
               </div>
 
-              {/* Action: Minimalist Link-Style Button */}
               <div className="flex justify-start pt-10">
                 <button
                   type="submit"
@@ -170,8 +173,8 @@ const ContactSection = () => {
         </AnimatePresence>
       </div>
 
-      {/* Aesthetic Footer Detail */}
-      <div className="absolute bottom-12 right-12 opacity-[0.05] pointer-events-none hidden lg:block">
+      {/* Decorative Branding */}
+      <div className="absolute bottom-12 right-12 opacity-[0.03] pointer-events-none hidden lg:block">
         <p className="text-[12rem] font-black text-white tracking-tighter leading-none select-none">
           MNS.
         </p>

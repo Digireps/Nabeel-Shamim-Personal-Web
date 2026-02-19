@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Building2, ArrowUpRight } from "lucide-react";
+import { Building2, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef } from "react";
 
 const ventures = [
   { 
@@ -21,7 +22,7 @@ const ventures = [
     url: "https://digifyglobal.com/"
   },
   { 
-    name: "Digital Trading", 
+    name: "NB Digital Trading", 
     description: "E-Commerce & Assets",
     details: "Strategic trading and digital asset management.",
     url: "#"
@@ -33,24 +34,37 @@ const ventures = [
     url: "#"
   },
   { 
-    name: "Collab Zone.pk", 
+    name: "CollabZone.pk", 
     description: "Innovation Hub",
     details: "Fostering collaboration in the local tech ecosystem.",
-    url: "https://collabzone.pk"
+    url: "https://www.facebook.com/collabzone.pk?mibextid=wwXIfr"
   },
   { 
     name: "Sapphire Solutions", 
     description: "Enterprise Tech",
     details: "Scalable software and infrastructure solutions.",
-    url: "https://saphiresolutions.com/"
+    url: "https://www.facebook.com/sapphiresolutions1"
   },
 ];
 
 const InvestmentsSection = () => {
-  const duplicatedVentures = [...ventures, ...ventures];
+  // Triple items to ensure seamless manual and auto-scrolling
+  const duplicatedVentures = [...ventures, ...ventures, ...ventures];
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const scrollAmount = 450; // Matches card width + gap
+      scrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: "smooth"
+      });
+    }
+  };
 
   return (
     <section id="investments" className="py-32 bg-[#FBFBFD] overflow-hidden">
+      {/* Centered Heading: Design preserved */}
       <div className="max-w-7xl mx-auto px-6 mb-16">
         <motion.div
           className="text-center"
@@ -68,59 +82,86 @@ const InvestmentsSection = () => {
         </motion.div>
       </div>
 
-      <div className="relative flex overflow-hidden group">
-        <motion.div 
-          className="flex gap-8 px-4"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ 
-            ease: "linear", 
-            duration: 40, 
-            repeat: Infinity 
-          }}
-          whileHover={{ animationPlayState: "paused" }}
+      {/* Moving Track */}
+      <div className="relative flex group">
+        <div 
+          ref={scrollRef}
+          className="flex overflow-x-auto no-scrollbar scroll-smooth"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {duplicatedVentures.map((company, i) => (
-            <motion.a
-              key={i}
-              href={company.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-shrink-0 w-[350px] md:w-[400px] relative bg-white rounded-[2.5rem] p-10 border border-zinc-100 shadow-[0_20px_50px_rgba(0,0,0,0.02)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.06)] transition-all duration-500 block"
-            >
-              <div className="absolute top-10 right-10 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity">
-                 <Building2 size={100} />
-              </div>
-
-              <div className="relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-zinc-50 flex items-center justify-center mb-8 border border-zinc-100 group-hover:bg-primary/10 group-hover:border-primary/20 transition-colors">
-                  <Building2 size={24} className="text-zinc-400 group-hover:text-primary transition-colors" />
+          <motion.div 
+            className="flex gap-8 px-4"
+            // FIX: Animate to -33.33% because the list is tripled.
+            // This creates a perfect, gapless loop.
+            animate={{ x: ["0%", "-33.333%"] }} 
+            transition={{ 
+              ease: "linear", 
+              duration: 35, 
+              repeat: Infinity 
+            }}
+            whileHover={{ animationPlayState: "paused" }}
+          >
+            {duplicatedVentures.map((company, i) => (
+              <motion.a
+                key={i}
+                href={company.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 w-[350px] md:w-[400px] relative bg-white rounded-[2.5rem] p-10 border border-zinc-100 shadow-[0_20px_50px_rgba(0,0,0,0.02)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.06)] transition-all duration-500 block"
+              >
+                <div className="absolute top-10 right-10 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity">
+                   <Building2 size={100} />
                 </div>
-                
-                <h3 className="text-2xl font-bold text-[#1d1d1f] mb-2 flex items-center gap-2">
-                  {company.name}
-                  <ArrowUpRight size={18} className="text-zinc-300 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                </h3>
-                
-                <p className="text-primary font-bold text-xs uppercase tracking-widest mb-4">
-                  {company.description}
-                </p>
-                
-                <p className="text-zinc-500 leading-relaxed">
-                  {company.details}
-                </p>
-              </div>
 
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-primary group-hover:w-1/3 transition-all duration-500 rounded-t-full" />
-            </motion.a>
-          ))}
-        </motion.div>
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-2xl bg-zinc-50 flex items-center justify-center mb-8 border border-zinc-100 group-hover:bg-primary/10 group-hover:border-primary/20 transition-colors">
+                    <Building2 size={24} className="text-zinc-400 group-hover:text-primary transition-colors" />
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-[#1d1d1f] mb-2 flex items-center gap-2">
+                    {company.name}
+                    <ArrowUpRight size={18} className="text-zinc-300 group-hover:text-primary transition-all" />
+                  </h3>
+                  
+                  <p className="text-primary font-bold text-xs uppercase tracking-widest mb-4">
+                    {company.description}
+                  </p>
+                  
+                  <p className="text-zinc-500 leading-relaxed">
+                    {company.details}
+                  </p>
+                </div>
 
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#FBFBFD] to-transparent z-20 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#FBFBFD] to-transparent z-20 pointer-events-none" />
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-primary group-hover:w-1/3 transition-all duration-500 rounded-t-full" />
+              </motion.a>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Apple-style Edge Gradient Fades */}
+        <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-[#FBFBFD] via-[#FBFBFD]/80 to-transparent z-20 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-[#FBFBFD] via-[#FBFBFD]/80 to-transparent z-20 pointer-events-none" />
+      </div>
+
+      {/* Navigation Buttons: Centered at Bottom */}
+      <div className="mt-20 flex justify-center gap-6">
+        <button 
+          onClick={() => handleScroll('left')}
+          className="w-14 h-14 rounded-full border border-zinc-200 bg-white flex items-center justify-center shadow-sm hover:border-primary hover:text-primary transition-all active:scale-95"
+          aria-label="Previous"
+        >
+          <ChevronLeft size={24} />
+        </button>
+        <button 
+          onClick={() => handleScroll('right')}
+          className="w-14 h-14 rounded-full border border-zinc-200 bg-white flex items-center justify-center shadow-sm hover:border-primary hover:text-primary transition-all active:scale-95"
+          aria-label="Next"
+        >
+          <ChevronRight size={24} />
+        </button>
       </div>
     </section>
   );
 };
 
 export default InvestmentsSection;
-

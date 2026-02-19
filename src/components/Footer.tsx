@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Linkedin, Globe, Award, ArrowUpRight, Mail } from "lucide-react";
+import { Linkedin, Globe, Award, ArrowUpRight } from "lucide-react"; // Removed Mail import
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -50,7 +50,7 @@ const Footer = () => {
               {[
                 { icon: Linkedin, url: "https://www.linkedin.com/in/mnabeelshamim/", label: "LinkedIn" },
                 { icon: Globe, url: "https://digireps.co", label: "DigiReps" },
-                { icon: Mail, url: "mailto:hello@nabeel.com", label: "Email" }
+                // Email object removed from this list
               ].map((social, i) => (
                 <motion.a
                   key={i}

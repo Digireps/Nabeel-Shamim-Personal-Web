@@ -1,25 +1,25 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
   {
-    quote: "Nabeel Company has been handling my lead gen for about a year now, delivering solid, high-quality leads. He checks in regularly via Slack, joins team meetings, and provides end-of-week reports. If you need someone who can generate leads and stay on top of communication, They do it all.",
+    quote: "DigiReps has been handling my lead gen for about a year now, delivering solid, high-quality leads. He checks in regularly via Slack, joins team meetings, and provides end-of-week reports. If you need someone who can generate leads and stay on top of communication, They do it all.",
     name: "George Schwartz",
     title: "Founder & CEO, Extenstion eComm",
   },
   {
-    quote: "Working with DigiReps was a game-changer. Nabeel's hands-on leadership and commitment to quality delivered results far beyond our expectations.",
+    quote: "Working with DigiReps was a game-changer. Muhammad's hands-on leadership and commitment to quality delivered results far beyond our expectations.",
     name: "Alexander Toth",
     title: "CEO, Clear Brands",
   },
   {
-    quote: "Nabeel brings a rare combination of entrepreneurial vision and operational excellence. His insights on scaling businesses are invaluable.",
+    quote: "Muhammad brings a rare combination of entrepreneurial vision and operational excellence. His insights on scaling businesses are invaluable.",
     name: "Julie Sponagel",
     title: "VP, Artisun Solar",
   },
   {
-    quote: "A true leader who leads by example. Nabeel's work ethic and strategic thinking have made a lasting impact on everyone who works with him.",
+    quote: "A true leader who leads by example. Muhammad's work ethic and strategic thinking have made a lasting impact on everyone who works with him.",
     name: "David Eames",
     title: "Founder & CEO, BDRadio",
   },
@@ -33,10 +33,10 @@ const TestimonialsSection = () => {
   // Helper function to highlight specific keywords
   const highlightText = (text) => {
     if (!text) return text;
-    // Regex to find "DigiReps" or "Nabeel" (case insensitive 'i' removed to stay precise)
-    const parts = text.split(/(DigiReps|Nabeel)/g);
+    // Updated regex to find "DigiReps" or "Muhammad"
+    const parts = text.split(/(DigiReps|Muhammad)/g);
     return parts.map((part, i) => 
-      part === "DigiReps" || part === "Nabeel" ? (
+      part === "DigiReps" || part === "Muhammad" ? (
         <span key={i} className="text-primary font-bold">
           {part}
         </span>
