@@ -121,6 +121,8 @@ const HeroSection = () => {
             <img 
               src={nabeelPortrait} 
               alt="Muhammad Nabeel Shamim" 
+              fetchPriority="high"
+              loading="eager"
               className="w-full h-auto object-contain filter contrast-[1.02] brightness-[1.01]" 
             />
           </div>

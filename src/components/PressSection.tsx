@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Award, Play, Mic } from "lucide-react";
+import YouTubeLite from "@/components/YouTubeLite";
 import { Badge } from "@/components/ui/badge";
 
 const podcasts = [
@@ -187,14 +188,7 @@ const PressSection = () => {
               whileHover={{ y: -6 }}
             >
               <div className="relative aspect-video">
-                <iframe
-                  src={`https://www.youtube.com/embed/${pod.videoId}`}
-                  title={pod.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                  loading="lazy"
-                />
+                <YouTubeLite videoId={pod.videoId} title={pod.title} />
               </div>
 
               <div className="p-6">
