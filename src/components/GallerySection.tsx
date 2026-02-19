@@ -46,10 +46,11 @@ const GallerySection = () => {
              This ensures the animation resets at the exact point the 
              second set of images replaces the first set, preventing blank gaps.
           */
+          style={{ willChange: "transform" }}
           animate={{ x: [0, "-50%"] }} 
           transition={{
             ease: "linear",
-            duration: 60, // Slightly faster for 12 images to maintain a premium crawl
+            duration: 60,
             repeat: Infinity,
           }}
           whileHover={{ animationPlayState: "paused" }}
@@ -65,6 +66,9 @@ const GallerySection = () => {
               <img
                 src={src}
                 alt={`Gallery image ${index}`}
+                width={720}
+                height={450}
+                loading="lazy"
                 className="w-full h-full object-cover grayscale-[0.3] group-hover/item:grayscale-0 transition-all duration-1000 ease-out"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/gallery/placeholder.png';
