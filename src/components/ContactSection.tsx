@@ -117,14 +117,14 @@ const ContactSection = () => {
                     required
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full bg-transparent border-b border-white/[0.2] py-6 text-white placeholder:text-zinc-800 focus:outline-none focus:border-primary transition-all text-2xl font-medium tracking-tight"
+                    className="w-full bg-transparent border-b border-white/[0.4] py-6 text-white placeholder:text-zinc-500 focus:outline-none focus:border-primary transition-all text-2xl font-medium tracking-tight"
                     placeholder="Enter name"
                   />
                 </div>
 
                 {/* Field: Email */}
                 <div className="group relative">
-                  <label className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 mb-2 block group-focus-within:text-primary transition-colors">
+                  <label className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500 mb-2 block group-focus-within:text-primary transition-colors">
                     02. Email Address
                   </label>
                   <input
@@ -132,7 +132,7 @@ const ContactSection = () => {
                     required
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full bg-transparent border-b border-white/[0.2] py-6 text-white placeholder:text-zinc-800 focus:outline-none focus:border-primary transition-all text-2xl font-medium tracking-tight"
+                    className="w-full bg-transparent border-b border-white/[0.2] py-6 text-white placeholder:text-zinc-500 focus:outline-none focus:border-primary transition-all text-2xl font-medium tracking-tight"
                     placeholder="name@email.com"
                   />
                 </div>
@@ -140,15 +140,15 @@ const ContactSection = () => {
 
               {/* Field: Message (Subject/Inquiry) */}
               <div className="group relative">
-                <label className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 mb-2 block group-focus-within:text-primary transition-colors">
-                  03. Strategic Inquiry / Message
+                <label className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500 mb-2 block group-focus-within:text-primary transition-colors">
+                  03. Strategic Brief / Message
                 </label>
                 <textarea
                   required
                   rows={2}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full bg-transparent border-b border-white/[0.2] py-6 text-white placeholder:text-zinc-800 focus:outline-none focus:border-primary transition-all text-2xl font-medium tracking-tight resize-none"
+                  className="w-full bg-transparent border-b border-white/[0.2] py-6 text-white placeholder:text-zinc-500 focus:outline-none focus:border-primary transition-all text-2xl font-medium tracking-tight resize-none"
                   placeholder="How can I assist your vision?"
                 />
               </div>
