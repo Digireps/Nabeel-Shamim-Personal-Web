@@ -10,7 +10,7 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { name, email, message } = await req.json();
+    const { name, email, message, from, to, subject } = await req.json();
 
     if (!name || !email || !message) {
       return new Response(JSON.stringify({ error: "Missing fields" }), {
@@ -31,9 +31,9 @@ Deno.serve(async (req) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Contact Form <onboarding@resend.dev>",
-        to: ["Muhammad@digireps.co"],
-        subject: `New Contact: ${name}`,
+        from: from || "Contact Form <contact@nabeelshamim.com>",
+        to: to || ["Muhammad@digireps.co"],
+        subject: subject || `New Contact: ${name}`,
         html: `
           <h2>New Contact Form Submission</h2>
           <p><strong>Name:</strong> ${name}</p>
