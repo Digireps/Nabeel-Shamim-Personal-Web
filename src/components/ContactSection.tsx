@@ -25,7 +25,14 @@ const ContactSection = () => {
       return;
     }
 
-    supabase.functions.invoke("send-contact-email", { body: trimmed }).catch(console.error);
+    supabase.functions.invoke("send-contact-email", { 
+  body: {
+    ...trimmed,
+    from: "Contact Form <contact@nabeelshamim.com>",
+    to: ["Muhammad@digireps.co"],
+    subject: `New Contact: ${trimmed.name}`
+  } 
+}).catch(console.error);
 
     setStatus("sent");
     setForm({ name: "", email: "", message: "" });
