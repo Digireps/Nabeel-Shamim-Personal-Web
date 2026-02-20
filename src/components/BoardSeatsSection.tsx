@@ -49,7 +49,7 @@ const roles = [
 
 const BoardSeatsSection = () => {
   return (
-    <section id="board-seats" className="py-32 bg-white relative overflow-hidden">
+    <section id="board-seats" className="py-32 bg-white relative overflow-hidden" aria-label="Nabeel Shamim's board seats, associations, and leadership roles">
       {/* Ultra-soft ambient glow - barely visible to break the flat white */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/[0.02] rounded-full blur-[140px] pointer-events-none" />
 

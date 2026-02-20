@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://deft-digital-duplicator.lovable.app/sitemap.xml

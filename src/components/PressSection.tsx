@@ -68,7 +68,8 @@ const featuredItems = [
 
 const PressSection = () => {
   return (
-    <section id="press" className="py-24 md:py-32 relative bg-[#050505] text-white overflow-hidden">
+    <section id="press" className="py-24 md:py-32 relative bg-[#050505] text-white overflow-hidden" aria-label="Press coverage and media features for Nabeel Shamim">
+      <article>
       {/* Subtle background ambient glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -210,6 +211,7 @@ const PressSection = () => {
           ))}
         </div>
       </div>
+      </article>
     </section>
   );
 };
