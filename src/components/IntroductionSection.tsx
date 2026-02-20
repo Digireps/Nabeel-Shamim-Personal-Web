@@ -13,7 +13,8 @@ const fadeIn: HTMLMotionProps<"div"> = {
 
 const IntroductionSection = () => {
   return (
-    <section id="introduction" className="py-32 md:py-48 bg-[#050505] overflow-hidden">
+    <section id="introduction" className="py-32 md:py-48 bg-[#050505] overflow-hidden" aria-label="About Muhammad Nabeel Shamim">
+      <article>
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div {...fadeIn} className="mb-20">
@@ -110,6 +111,7 @@ const IntroductionSection = () => {
           </motion.div>
         </div>
       </div>
+      </article>
     </section>
   );
 };

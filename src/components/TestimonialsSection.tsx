@@ -64,6 +64,7 @@ const TestimonialsSection = () => {
     <section 
       id="testimonials" 
       className="py-40 bg-[#050505] text-white overflow-hidden relative"
+      aria-label="Client testimonials and endorsements for Muhammad Nabeel Shamim"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >

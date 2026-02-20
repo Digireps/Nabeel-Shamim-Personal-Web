@@ -29,7 +29,7 @@ const Footer = () => {
           {/* Quick Links */}
           <div className="md:col-span-3">
             <h4 className="font-bold font-['Outfit'] text-[10px] uppercase tracking-[0.3em] mb-8 text-primary/70">Navigation</h4>
-            <nav className="flex flex-col gap-4">
+            <nav aria-label="Site navigation" className="flex flex-col gap-4">
               {["About", "Ventures", "Roles", "Press"].map((link) => (
                 <a
                   key={link}

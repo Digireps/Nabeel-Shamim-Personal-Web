@@ -52,6 +52,7 @@ const HeroSection = () => {
         >
           Nabeel Shamim.
         </motion.h1>
+        <p className="sr-only">Muhammad Nabeel Shamim — Founder & CEO of DigiReps, Forbes Business Council Member, Pakistani entrepreneur pioneering remote workforce solutions globally.</p>
 
         {/* Sub-headline Text */}
         <motion.div 
