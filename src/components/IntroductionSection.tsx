@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion, HTMLMotionProps } from "framer-motion";
 import { Award, ArrowUpRight } from "lucide-react";
-import intro from "@/assets/intro.png";
+const intro = "/intro.png";
 
 // Fixed Type Error by adding explicit typing
 const fadeIn: HTMLMotionProps<"div"> = {

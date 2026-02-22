@@ -1,7 +1,5 @@
 import { Linkedin, Globe, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import nabeelPortrait from "@/assets/nabeel-portrait.png";
 
 const socialLinks = [
   { icon: Linkedin, href: "https://www.linkedin.com/in/mnabeelshamim/" },
@@ -26,55 +24,42 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center pt-32 flex-grow">
         
         {/* Eyebrow Label */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-6"
-        >
+        <div className="mb-6 animate-reveal" style={{ animationDelay: '0s' }}>
           <span className="text-[12px] font-bold tracking-[0.2em] sm:tracking-[0.3em] text-zinc-400 uppercase text-center sm:text-left leading-relaxed">
-  <span className="block sm:inline">
-    Forbes Recognized & Award-Winning
-  </span>
-  <span className="block sm:inline sm:ml-2">
-    Entrepreneur
-  </span>
-</span>
-
-        </motion.div>
+            <span className="block sm:inline">
+              Forbes Recognized & Award-Winning
+            </span>
+            <span className="block sm:inline sm:ml-2">
+              Entrepreneur
+            </span>
+          </span>
+        </div>
 
         {/* Main Headline */}
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 1, 0.5, 1] }}
-          className="text-6xl md:text-8xl lg:text-[9.5rem] font-black tracking-[-0.05em] leading-[0.9] mb-8 text-center"
+        <h1 
+          className="text-6xl md:text-8xl lg:text-[9.5rem] font-black tracking-[-0.05em] leading-[0.9] mb-8 text-center animate-reveal"
+          style={{ animationDelay: '0.15s' }}
         >
           Nabeel Shamim.
-        </motion.h1>
+        </h1>
         <p className="sr-only">Muhammad Nabeel Shamim — Founder & CEO of DigiReps, Forbes Business Council Member, Pakistani entrepreneur pioneering remote workforce solutions globally.</p>
 
         {/* Sub-headline Text */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-center mb-12"
+        <div 
+          className="text-center mb-12 animate-reveal"
+          style={{ animationDelay: '0.3s' }}
         >
           <p className="text-xl md:text-3xl text-zinc-500 font-medium tracking-tight leading-tight">
             Building the future of global work. <br />
             <span className="text-black">Strategic leadership for the modern enterprise.</span>
           </p>
-        </motion.div>
+        </div>
 
         {/* Call to Action Row */}
-        <motion.div 
-          className="flex flex-wrap items-center justify-center gap-8 mb-16"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
+        <div 
+          className="flex flex-wrap items-center justify-center gap-8 mb-16 animate-reveal"
+          style={{ animationDelay: '0.45s' }}
         >
-          {/* FIX: Wrapped Button in anchor tag pointing to #contact */}
           <a href="#contact">
             <Button className="rounded-full bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg font-semibold shadow-xl transition-all hover:scale-105 active:scale-95 border-none cursor-pointer">
               Contact Nabeel
@@ -82,7 +67,6 @@ const HeroSection = () => {
           </a>
           
           <div className="flex items-center gap-6">
-            {/* FIX: Updated href to #introduction to match your About section ID */}
             <a href="#introduction" className="flex items-center gap-2 text-primary font-semibold text-lg hover:underline group">
               Learn more <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
@@ -103,14 +87,12 @@ const HeroSection = () => {
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        {/* FIXED PORTRAIT */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, delay: 0.4, ease: [0.23, 1, 0.32, 1] }}
-          className="relative w-full max-w-4xl flex justify-center mt-auto"
+        {/* FIXED PORTRAIT - now static from /public */}
+        <div
+          className="relative w-full max-w-4xl flex justify-center mt-auto animate-reveal"
+          style={{ animationDelay: '0.3s' }}
         >
           <div 
             className="relative w-full max-w-2xl"
@@ -120,19 +102,19 @@ const HeroSection = () => {
             }}
           >
             <img 
-              src={nabeelPortrait} 
+              src="/nabeel-portrait.png" 
               alt="Muhammad Nabeel Shamim" 
               fetchPriority="high"
               loading="eager"
               className="w-full h-auto object-contain filter contrast-[1.02] brightness-[1.01]" 
             />
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* APPLE-STYLE FROSTED TICKER */}
       <div className="w-full backdrop-blur-md bg-white/60 border-t border-zinc-100 py-8 overflow-hidden z-20">
-        <div className="flex whitespace-nowrap marquee-track">
+        <div className="flex whitespace-nowrap marquee-track" style={{ willChange: 'transform', contain: 'layout style paint' }}>
           {[...tickerItems, ...tickerItems].map((item, i) => (
             <div key={i} className="flex items-center">
               <span className="text-[10px] font-black tracking-[0.4em] text-zinc-400 px-16 uppercase">

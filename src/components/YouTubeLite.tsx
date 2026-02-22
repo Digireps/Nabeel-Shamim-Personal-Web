@@ -31,6 +31,7 @@ const YouTubeLite = ({ videoId, title }: YouTubeLiteProps) => {
         src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
         alt={title}
         loading="lazy"
+        decoding="async"
         className="w-full h-full object-cover opacity-80 group-hover/play:opacity-100 transition-opacity"
       />
       <div className="absolute inset-0 flex items-center justify-center">

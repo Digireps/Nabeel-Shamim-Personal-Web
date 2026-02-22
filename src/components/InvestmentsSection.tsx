@@ -91,6 +91,7 @@ const InvestmentsSection = () => {
         >
           <motion.div 
             className="flex gap-8 px-4"
+            style={{ willChange: 'transform', contain: 'layout style paint' }}
             // FIX: Animate to -33.33% because the list is tripled.
             // This creates a perfect, gapless loop.
             animate={{ x: ["0%", "-33.333%"] }} 

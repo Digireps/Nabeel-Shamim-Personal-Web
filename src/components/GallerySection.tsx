@@ -9,7 +9,7 @@ const galleryImages = [
 ];
 
 const GallerySection = () => {
-  const duplicatedImages = [...galleryImages, ...galleryImages, ...galleryImages];
+  const duplicatedImages = [...galleryImages, ...galleryImages];
   const scrollRef = useRef<HTMLDivElement>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
@@ -66,7 +66,8 @@ const GallerySection = () => {
         >
           <motion.div
             className="flex gap-8 px-4"
-            animate={{ x: ["0%", "-33.333%"] }} 
+            style={{ willChange: 'transform', contain: 'layout style paint' }}
+            animate={{ x: ["0%", "-50%"] }} 
             transition={{ ease: "linear", duration: 40, repeat: Infinity }}
             whileHover={{ animationPlayState: "paused" }}
           >
@@ -81,6 +82,8 @@ const GallerySection = () => {
                 <img
                   src={src}
                   alt={`Gallery ${index}`}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover grayscale-[0.3] group-hover/item:grayscale-0 transition-all duration-1000 ease-out"
                 />
               </motion.div>
