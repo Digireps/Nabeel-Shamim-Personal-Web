@@ -63,6 +63,7 @@ const StatCard = ({ stat, started, index }) => {
     <motion.div
       initial={{ opacity: 0, scale: 0.98 }}
       whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
       className={`group relative p-8 bg-[#0A0A0B] rounded-[2rem] shadow-xl shadow-black/10 hover:shadow-primary/5 transition-all duration-700 flex flex-col justify-between overflow-hidden border border-white/5 ${sizeClasses[stat.size]}`}
     >
