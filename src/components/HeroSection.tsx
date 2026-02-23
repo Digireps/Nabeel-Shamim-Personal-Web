@@ -51,7 +51,7 @@ const HeroSection = () => {
           {...fadeUp}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
         >
-          Nabeel Shamim.
+          Nabeel Shamim<span className="inline-block w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 bg-primary ml-1 align-baseline relative -top-1 md:-top-2" />
         </motion.h1>
         <p className="sr-only">Muhammad Nabeel Shamim — Founder & CEO of DigiReps, Forbes Business Council Member, Pakistani entrepreneur pioneering remote workforce solutions globally.</p>
 
