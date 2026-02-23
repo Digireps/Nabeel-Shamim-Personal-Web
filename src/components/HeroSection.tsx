@@ -37,12 +37,14 @@ const HeroSection = () => {
         </motion.div>
 
         <motion.h1
-          className="text-6xl md:text-8xl lg:text-[9.5rem] font-bold tracking-[-0.05em] leading-[0.9] mb-8 text-center flex items-end justify-center"
+          className="text-6xl md:text-8xl lg:text-[9.5rem] font-bold tracking-[-0.05em] leading-[0.9] mb-8 text-center"
           {...fadeUp}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
         >
-          Nabeel Shamim
-          <span className="ml-2 w-[0.18em] h-[0.18em] bg-current inline-block" />
+          Nabeel
+          <br className="md:hidden" />
+          Shamim
+          <span className="ml-2 inline-block w-[0.18em] h-[0.18em] bg-current align-baseline translate-y-[0.08em]" />
         </motion.h1>
 
         <p className="sr-only">
