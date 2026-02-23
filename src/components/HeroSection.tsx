@@ -47,7 +47,7 @@ const HeroSection = () => {
 
         {/* Main Headline */}
         <motion.h1 
-          className="text-6xl md:text-8xl lg:text-[9.5rem] font-black tracking-[-0.05em] leading-[0.9] mb-8 text-center"
+          className="text-6xl md:text-8xl lg:text-[9.5rem] font-bold tracking-[-0.05em] leading-[0.9] mb-8 text-center"
           {...fadeUp}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
         >
