@@ -28,35 +28,31 @@ const HeroSection = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center pt-32 flex-grow">
-        
         {/* Eyebrow Label */}
-        <motion.div
-          className="mb-6"
-          {...fadeUp}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0 }}
-        >
+        <motion.div className="mb-6" {...fadeUp} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0 }}>
           <span className="text-[12px] font-bold tracking-[0.2em] sm:tracking-[0.3em] text-zinc-400 uppercase text-center sm:text-left leading-relaxed">
-            <span className="block sm:inline">
-              Forbes Recognized & Award-Winning
-            </span>
-            <span className="block sm:inline sm:ml-2">
-              Entrepreneur
-            </span>
+            <span className="block sm:inline">Forbes Recognized & Award-Winning</span>
+            <span className="block sm:inline sm:ml-2">Entrepreneur</span>
           </span>
         </motion.div>
 
         {/* Main Headline */}
-        <motion.h1 
+        <motion.h1
           className="text-6xl md:text-8xl lg:text-[9.5rem] font-bold tracking-[-0.05em] leading-[0.9] mb-8 text-center"
           {...fadeUp}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
         >
-          Nabeel Shamim<span className="inline-block w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 bg-primary ml-1 align-baseline relative -top-1 md:-top-2" />
+          Nabeel Shamim
+          <span className="inline-block w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 bg-primary ml-1 align-baseline relative -top-1 md:-top-2" />
         </motion.h1>
-        <p className="sr-only">Muhammad Nabeel Shamim — Founder & CEO of DigiReps, Forbes Business Council Member, Pakistani entrepreneur pioneering remote workforce solutions globally.</p>
+
+        <p className="sr-only">
+          Muhammad Nabeel Shamim — Founder & CEO of DigiReps, Forbes Business Council Member, Pakistani entrepreneur
+          pioneering remote workforce solutions globally.
+        </p>
 
         {/* Sub-headline Text */}
-        <motion.div 
+        <motion.div
           className="text-center mb-12"
           {...fadeUp}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
@@ -68,7 +64,7 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Call to Action Row */}
-        <motion.div 
+        <motion.div
           className="flex flex-wrap items-center justify-center gap-8 mb-16"
           {...fadeUp}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.45 }}
@@ -78,14 +74,18 @@ const HeroSection = () => {
               Contact Nabeel
             </Button>
           </a>
-          
+
           <div className="flex items-center gap-6">
-            <a href="#introduction" className="flex items-center gap-2 text-primary font-semibold text-lg hover:underline group">
-              Learn more <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <a
+              href="#introduction"
+              className="flex items-center gap-2 text-primary font-semibold text-lg hover:underline group"
+            >
+              Learn more
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
-            
+
             <div className="h-6 w-px bg-zinc-200 hidden md:block" />
-            
+
             <div className="flex gap-4">
               {socialLinks.map(({ icon: Icon, href }, i) => (
                 <a
@@ -108,21 +108,21 @@ const HeroSection = () => {
           {...fadeUp}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
         >
-          <div 
+          <div
             className="relative w-full max-w-2xl"
             style={{
-              maskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)'
+              maskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
             }}
           >
-            <img 
-              src="/nabeel-portrait.png" 
-              alt="Muhammad Nabeel Shamim" 
+            <img
+              src="/nabeel-portrait.png"
+              alt="Muhammad Nabeel Shamim"
               width={768}
               height={960}
               fetchPriority="high"
               loading="eager"
-              className="w-full h-auto object-contain filter contrast-[1.02] brightness-[1.01]" 
+              className="w-full h-auto object-contain filter contrast-[1.02] brightness-[1.01]"
             />
           </div>
         </motion.div>
@@ -130,31 +130,37 @@ const HeroSection = () => {
 
       {/* APPLE-STYLE FROSTED TICKER */}
       <div className="w-full backdrop-blur-md bg-white/60 border-t border-zinc-100 py-8 overflow-hidden z-20">
-        <div className="flex whitespace-nowrap marquee-track" style={{ willChange: 'transform', contain: 'layout style paint' }}>
+        <div
+          className="flex whitespace-nowrap marquee-track"
+          style={{ willChange: "transform", contain: "layout style paint" }}
+        >
           {[...tickerItems, ...tickerItems].map((item, i) => (
             <div key={i} className="flex items-center">
-              <span className="text-[10px] font-black tracking-[0.4em] text-zinc-400 px-16 uppercase">
-                {item}
-              </span>
-              <div className="w-1 h-1 bg-zinc-300 rounded-full" />
+              <span className="text-[10px] font-black tracking-[0.4em] text-zinc-400 px-16 uppercase">{item}</span>
+              {/* DOT UPDATED TO BLACK */}
+              <div className="w-1 h-1 bg-black rounded-full" />
             </div>
           ))}
         </div>
       </div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .marquee-track {
-          display: flex;
-          animation: scroll 40s linear infinite;
-        }
-        .marquee-track:hover {
-          animation-play-state: paused;
-        }
-      `}} />
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .marquee-track {
+            display: flex;
+            animation: scroll 40s linear infinite;
+          }
+          .marquee-track:hover {
+            animation-play-state: paused;
+          }
+        `,
+        }}
+      />
     </section>
   );
 };
