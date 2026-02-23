@@ -43,7 +43,10 @@ const IntroductionSection = () => {
               <img 
                 src={intro} 
                 alt="Muhammad Nabeel Shamim" 
+                width={640}
+                height={960}
                 loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105 opacity-90 hover:opacity-100" 
               />
               <div className="absolute top-4 right-4 md:top-6 md:right-6 backdrop-blur-xl bg-black/40 border border-white/10 p-3 md:p-4 rounded-2xl shadow-2xl">
