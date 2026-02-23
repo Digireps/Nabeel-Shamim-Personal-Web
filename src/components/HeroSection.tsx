@@ -44,7 +44,7 @@ const HeroSection = () => {
           Nabeel{" "}
           <span className="whitespace-nowrap">
             Shamim
-            <span className="ml-2 inline-block w-[0.18em] h-[0.18em] bg-current align-baseline translate-y-[0.08em]" />
+            <span className="ml-2 inline-block w-[0.18em] h-[0.18em] bg-current align-baseline" />
           </span>
         </motion.h1>
         <p className="sr-only">
