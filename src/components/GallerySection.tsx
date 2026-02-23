@@ -3,9 +3,9 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
 const galleryImages = [
-  "/gallery/1.png", "/gallery/2.png", "/gallery/3.png", "/gallery/4.png", 
-  "/gallery/5.png", "/gallery/6.png", "/gallery/7.png", "/gallery/8.png", 
-  "/gallery/9.png", "/gallery/10.png", "/gallery/11.png", "/gallery/12.png"
+  "/gallery/1.webp", "/gallery/2.webp", "/gallery/3.webp", "/gallery/4.webp", 
+  "/gallery/5.webp", "/gallery/6.webp", "/gallery/7.webp", "/gallery/8.webp", 
+  "/gallery/9.webp", "/gallery/10.webp", "/gallery/11.webp", "/gallery/12.webp"
 ];
 
 const GallerySection = () => {
