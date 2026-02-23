@@ -1,5 +1,6 @@
 import { Linkedin, Globe, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const socialLinks = [
   { icon: Linkedin, href: "https://www.linkedin.com/in/mnabeelshamim/" },
@@ -15,6 +16,11 @@ const tickerItems = [
   "SELF-MADE MILLIONAIRE",
 ];
 
+const fadeUp = {
+  initial: { opacity: 0, y: 30, filter: "blur(10px)" },
+  animate: { opacity: 1, y: 0, filter: "blur(0px)" },
+};
+
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex flex-col items-center bg-[#FBFBFD] text-[#1d1d1f] overflow-hidden">
@@ -24,7 +30,11 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center pt-32 flex-grow">
         
         {/* Eyebrow Label */}
-        <div className="mb-6 animate-reveal" style={{ animationDelay: '0s' }}>
+        <motion.div
+          className="mb-6"
+          {...fadeUp}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0 }}
+        >
           <span className="text-[12px] font-bold tracking-[0.2em] sm:tracking-[0.3em] text-zinc-400 uppercase text-center sm:text-left leading-relaxed">
             <span className="block sm:inline">
               Forbes Recognized & Award-Winning
@@ -33,32 +43,35 @@ const HeroSection = () => {
               Entrepreneur
             </span>
           </span>
-        </div>
+        </motion.div>
 
         {/* Main Headline */}
-        <h1 
-          className="text-6xl md:text-8xl lg:text-[9.5rem] font-black tracking-[-0.05em] leading-[0.9] mb-8 text-center animate-reveal"
-          style={{ animationDelay: '0.15s' }}
+        <motion.h1 
+          className="text-6xl md:text-8xl lg:text-[9.5rem] font-black tracking-[-0.05em] leading-[0.9] mb-8 text-center"
+          {...fadeUp}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
         >
           Nabeel Shamim.
-        </h1>
+        </motion.h1>
         <p className="sr-only">Muhammad Nabeel Shamim — Founder & CEO of DigiReps, Forbes Business Council Member, Pakistani entrepreneur pioneering remote workforce solutions globally.</p>
 
         {/* Sub-headline Text */}
-        <div 
-          className="text-center mb-12 animate-reveal"
-          style={{ animationDelay: '0.3s' }}
+        <motion.div 
+          className="text-center mb-12"
+          {...fadeUp}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
         >
           <p className="text-xl md:text-3xl text-zinc-500 font-medium tracking-tight leading-tight">
             Building the future of global work. <br />
             <span className="text-black">Strategic leadership for the modern enterprise.</span>
           </p>
-        </div>
+        </motion.div>
 
         {/* Call to Action Row */}
-        <div 
-          className="flex flex-wrap items-center justify-center gap-8 mb-16 animate-reveal"
-          style={{ animationDelay: '0.45s' }}
+        <motion.div 
+          className="flex flex-wrap items-center justify-center gap-8 mb-16"
+          {...fadeUp}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.45 }}
         >
           <a href="#contact">
             <Button className="rounded-full bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg font-semibold shadow-xl transition-all hover:scale-105 active:scale-95 border-none cursor-pointer">
@@ -87,12 +100,13 @@ const HeroSection = () => {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* FIXED PORTRAIT - now static from /public */}
-        <div
-          className="relative w-full max-w-4xl flex justify-center mt-auto animate-reveal"
-          style={{ animationDelay: '0.3s' }}
+        {/* Portrait */}
+        <motion.div
+          className="relative w-full max-w-4xl flex justify-center mt-auto"
+          {...fadeUp}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
         >
           <div 
             className="relative w-full max-w-2xl"
@@ -109,7 +123,7 @@ const HeroSection = () => {
               className="w-full h-auto object-contain filter contrast-[1.02] brightness-[1.01]" 
             />
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* APPLE-STYLE FROSTED TICKER */}
