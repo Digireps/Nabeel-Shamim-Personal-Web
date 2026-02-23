@@ -118,6 +118,8 @@ const HeroSection = () => {
             <img 
               src="/nabeel-portrait.png" 
               alt="Muhammad Nabeel Shamim" 
+              width={768}
+              height={960}
               fetchPriority="high"
               loading="eager"
               className="w-full h-auto object-contain filter contrast-[1.02] brightness-[1.01]" 
