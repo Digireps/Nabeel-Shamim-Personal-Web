@@ -153,7 +153,7 @@ const HeroSection = () => {
           __html: `
           @keyframes scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            100% { transform: translateX(-${marqueeShiftPercent}%); }
           }
           .marquee-track {
             display: flex;
