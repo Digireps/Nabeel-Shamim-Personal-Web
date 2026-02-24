@@ -21,6 +21,9 @@ const fadeUp = {
   animate: { opacity: 1, y: 0, filter: "blur(0px)" },
 };
 
+const tickerLoopCount = 3;
+const marqueeShiftPercent = 100 / tickerLoopCount;
+
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex flex-col items-center bg-[#FBFBFD] text-[#1d1d1f] overflow-hidden">
