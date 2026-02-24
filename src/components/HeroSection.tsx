@@ -138,7 +138,7 @@ const HeroSection = () => {
           className="flex whitespace-nowrap marquee-track"
           style={{ willChange: "transform", contain: "layout style paint" }}
         >
-          {[...tickerItems, ...tickerItems, ...tickerItems].map((item, i) => (
+          {[...Array(tickerLoopCount)].flatMap(() => tickerItems).map((item, i) => (
             <div key={i} className="flex items-center">
               <span className="text-[8px] sm:text-[10px] font-black tracking-[0.2em] sm:tracking-[0.4em] text-zinc-400 px-6 sm:px-16 uppercase">{item}</span>
               {/* DOT UPDATED TO BLACK */}
