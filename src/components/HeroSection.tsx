@@ -21,8 +21,7 @@ const fadeUp = {
   animate: { opacity: 1, y: 0, filter: "blur(0px)" },
 };
 
-const tickerLoopCount = 3;
-const marqueeShiftPercent = 100 / tickerLoopCount;
+const marqueeShiftPercent = 50;
 
 const HeroSection = () => {
   return (
@@ -135,13 +134,12 @@ const HeroSection = () => {
       {/* APPLE-STYLE FROSTED TICKER */}
       <div className="w-full backdrop-blur-md bg-white/60 border-t border-zinc-100 py-8 overflow-hidden z-20">
         <div
-          className="flex whitespace-nowrap marquee-track"
+          className="flex w-max whitespace-nowrap marquee-track"
           style={{ willChange: "transform", contain: "layout style paint" }}
         >
-          {[...Array(tickerLoopCount)].flatMap(() => tickerItems).map((item, i) => (
+          {[...tickerItems, ...tickerItems].map((item, i) => (
             <div key={i} className="flex items-center">
               <span className="text-[8px] sm:text-[10px] font-black tracking-[0.2em] sm:tracking-[0.4em] text-zinc-400 px-6 sm:px-16 uppercase">{item}</span>
-              {/* DOT UPDATED TO BLACK */}
               <div className="w-1 h-1 bg-black rounded-full" />
             </div>
           ))}
