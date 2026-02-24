@@ -21,6 +21,9 @@ const fadeUp = {
   animate: { opacity: 1, y: 0, filter: "blur(0px)" },
 };
 
+const tickerLoopCount = 3;
+const marqueeShiftPercent = 100 / tickerLoopCount;
+
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex flex-col items-center bg-[#FBFBFD] text-[#1d1d1f] overflow-hidden">
@@ -135,7 +138,7 @@ const HeroSection = () => {
           className="flex whitespace-nowrap marquee-track"
           style={{ willChange: "transform", contain: "layout style paint" }}
         >
-          {[...tickerItems, ...tickerItems, ...tickerItems].map((item, i) => (
+          {[...Array(tickerLoopCount)].flatMap(() => tickerItems).map((item, i) => (
             <div key={i} className="flex items-center">
               <span className="text-[8px] sm:text-[10px] font-black tracking-[0.2em] sm:tracking-[0.4em] text-zinc-400 px-6 sm:px-16 uppercase">{item}</span>
               {/* DOT UPDATED TO BLACK */}
@@ -150,7 +153,7 @@ const HeroSection = () => {
           __html: `
           @keyframes scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            100% { transform: translateX(-${marqueeShiftPercent}%); }
           }
           .marquee-track {
             display: flex;
