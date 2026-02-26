@@ -28,7 +28,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="md:col-span-3">
-            <h4 className="font-black text-[12px] uppercase tracking-[0.6em] mb-8 text-primary/70">Navigation</h4>
+            <h4 className="font-dm font-black text-[12px] uppercase tracking-[0.6em] mb-8 text-primary/70">Navigation</h4>
             <nav aria-label="Site navigation" className="flex flex-col gap-4">
               {["About", "Ventures", "Roles", "Press"].map((link) => (
                 <a
@@ -45,7 +45,7 @@ const Footer = () => {
 
           {/* Social Presence */}
           <div className="md:col-span-4">
-            <h4 className="font-black text-[12px] uppercase tracking-[0.6em] mb-8 text-primary/70">Global Connect</h4>
+            <h4 className="font-dm font-black text-[12px] uppercase tracking-[0.6em] mb-8 text-primary/70">Global Connect</h4>
             <div className="flex items-center gap-4 mb-8">
               {[
                 { icon: Linkedin, url: "https://www.linkedin.com/in/mnabeelshamim/", label: "LinkedIn" },

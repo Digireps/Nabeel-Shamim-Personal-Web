@@ -22,6 +22,7 @@ export default {
       fontFamily: {
         heading: ["Outfit", "sans-serif"], // For impact and authority
         sans: ["Inter", "sans-serif"],    // For clean, executive readability
+        dm: ["DM Sans", "sans-serif"],    // Added for specific sans-serif use cases
       },
       colors: {
         border: "hsl(var(--border))",
