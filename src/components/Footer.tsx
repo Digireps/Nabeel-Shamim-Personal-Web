@@ -45,7 +45,7 @@ const Footer = () => {
 
           {/* Social Presence */}
           <div className="md:col-span-4">
-            <h4 className="font-bold font-['Outfit'] text-[10px] uppercase tracking-[0.3em] mb-8 text-primary/70">Global Connect</h4>
+            <h4 className="font-black text-[12px] uppercase tracking-[0.6em] mb-8 text-primary/70">Global Connect</h4>
             <div className="flex items-center gap-4 mb-8">
               {[
                 { icon: Linkedin, url: "https://www.linkedin.com/in/mnabeelshamim/", label: "LinkedIn" },
