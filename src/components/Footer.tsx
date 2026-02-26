@@ -77,7 +77,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* 2. Refined Bottom Bar */}
+      {/* 2. Bottom Bar */}
       <div className="border-t border-border/50 bg-secondary/10">
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
