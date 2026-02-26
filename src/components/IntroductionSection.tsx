@@ -49,11 +49,6 @@ const IntroductionSection = () => {
                 decoding="async"
                 className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105 opacity-90 hover:opacity-100" 
               />
-              <div className="absolute top-4 right-4 md:top-6 md:right-6 backdrop-blur-xl bg-black/40 border border-white/10 p-3 md:p-4 rounded-2xl shadow-2xl">
-
-                 <Award className="text-primary mb-2" size={20} />
-                 <p className="text-[10px] font-bold text-white uppercase tracking-widest leading-none">Forbes Member</p>
-              </div>
             </div>
           </motion.div>
 
