@@ -3,46 +3,46 @@ import { Building2, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react
 import { useRef } from "react";
 
 const ventures = [
-  { 
-    name: "DigiReps", 
+  {
+    name: "DigiReps",
     description: "Remote Workforce Solutions",
     details: "Connecting elite global talent with US-based enterprises.",
     url: "https://digireps.co"
   },
-  { 
-    name: "Prodigy Solutions", 
+  {
+    name: "Prodigy Solutions",
     description: "Business Development Agency",
-    details: "Driving Inc. 5000 growth through strategic development.",
-    url: "https://www.prodisols.com/" 
+    details: "Strategic biz-dev services",
+    url: "https://www.prodisols.com/"
   },
-  { 
-    name: "Digify Global", 
+  {
+    name: "Digify Global",
     description: "Digital Growth & Strategy",
     details: "Expanding digital footprints for global brands.",
     url: "https://digifyglobal.com/"
   },
-  { 
-    name: "NB Digital Trading", 
+  {
+    name: "NB Digital Trading",
     description: "E-Commerce & Assets",
     details: "Strategic trading and digital asset management.",
     url: "#"
   },
-  { 
-    name: "3N & Co", 
+  {
+    name: "3N & Co",
     description: "Strategic Consulting",
-    details: "Providing expert business and operational oversight.",
+    details: "Consortium of small ventures.",
     url: "#"
   },
-  { 
-    name: "CollabZone.pk", 
+  {
+    name: "CollabZone.pk",
     description: "Innovation Hub",
-    details: "Fostering collaboration in the local tech ecosystem.",
+    details: "Executive coworking spaces and tech incubation.",
     url: "https://www.facebook.com/collabzone.pk?mibextid=wwXIfr"
   },
-  { 
-    name: "Sapphire Solutions", 
+  {
+    name: "Sapphire Solutions",
     description: "Enterprise Tech",
-    details: "Scalable software and infrastructure solutions.",
+    details: "Scalable BPO and outsourcing solutions.",
     url: "https://www.facebook.com/sapphiresolutions1"
   },
 ];
@@ -84,21 +84,21 @@ const InvestmentsSection = () => {
 
       {/* Moving Track */}
       <div className="relative flex group">
-        <div 
+        <div
           ref={scrollRef}
           className="flex overflow-x-auto no-scrollbar scroll-smooth"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          <motion.div 
+          <motion.div
             className="flex gap-8 px-4"
             style={{ willChange: 'transform', contain: 'layout style paint' }}
             // FIX: Animate to -33.33% because the list is tripled.
             // This creates a perfect, gapless loop.
-            animate={{ x: ["0%", "-33.333%"] }} 
-            transition={{ 
-              ease: "linear", 
-              duration: 35, 
-              repeat: Infinity 
+            animate={{ x: ["0%", "-33.333%"] }}
+            transition={{
+              ease: "linear",
+              duration: 35,
+              repeat: Infinity
             }}
             whileHover={{ animationPlayState: "paused" }}
           >
@@ -111,23 +111,23 @@ const InvestmentsSection = () => {
                 className="flex-shrink-0 w-[350px] md:w-[400px] relative bg-white rounded-[2.5rem] p-10 border border-zinc-100 shadow-[0_20px_50px_rgba(0,0,0,0.02)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.06)] transition-all duration-500 block"
               >
                 <div className="absolute top-10 right-10 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity">
-                   <Building2 size={100} />
+                  <Building2 size={100} />
                 </div>
 
                 <div className="relative z-10">
                   <div className="w-14 h-14 rounded-2xl bg-zinc-50 flex items-center justify-center mb-8 border border-zinc-100 group-hover:bg-primary/10 group-hover:border-primary/20 transition-colors">
                     <Building2 size={24} className="text-zinc-400 group-hover:text-primary transition-colors" />
                   </div>
-                  
+
                   <h3 className="text-2xl font-bold text-[#1d1d1f] mb-2 flex items-center gap-2">
                     {company.name}
                     <ArrowUpRight size={18} className="text-zinc-300 group-hover:text-primary transition-all" />
                   </h3>
-                  
+
                   <p className="text-primary font-bold text-xs uppercase tracking-widest mb-4">
                     {company.description}
                   </p>
-                  
+
                   <p className="text-zinc-500 leading-relaxed">
                     {company.details}
                   </p>
@@ -146,14 +146,14 @@ const InvestmentsSection = () => {
 
       {/* Navigation Buttons: Centered at Bottom */}
       <div className="mt-20 flex justify-center gap-6">
-        <button 
+        <button
           onClick={() => handleScroll('left')}
           className="w-14 h-14 rounded-full border border-zinc-200 bg-white flex items-center justify-center shadow-sm hover:border-primary hover:text-primary transition-all active:scale-95"
           aria-label="Previous"
         >
           <ChevronLeft size={24} />
         </button>
-        <button 
+        <button
           onClick={() => handleScroll('right')}
           className="w-14 h-14 rounded-full border border-zinc-200 bg-white flex items-center justify-center shadow-sm hover:border-primary hover:text-primary transition-all active:scale-95"
           aria-label="Next"

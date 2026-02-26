@@ -3,46 +3,46 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 
 const roles = [
-  { 
-    company: "DigiReps", 
-    role: "Founder & CEO", 
-    period: "2023 – Present", 
-    url: "https://digireps.co", 
+  {
+    company: "DigiReps",
+    role: "Founder & CEO",
+    period: "2023 - Present",
+    url: "https://digireps.co",
     status: "Active"
   },
-  { 
-    company: "Forbes Business Council", 
-    role: "Official Member", 
-    period: "Present", 
-    url: "https://councils.forbes.com/profile/Muhammad-Nabeel-Shamim-Founder-CEO-DigiReps/f15d004f-bae0-4bee-8276-1af1b187609e", 
+  {
+    company: "Forbes Business Council",
+    role: "Official Member",
+    period: "Present",
+    url: "https://councils.forbes.com/profile/Muhammad-Nabeel-Shamim-Founder-CEO-DigiReps/f15d004f-bae0-4bee-8276-1af1b187609e",
     status: "Current"
   },
-  { 
-    company: "Prodigy Solutions", 
-    role: "Founder", 
-    period: "2016 - Present", 
-    url: "https://www.prodisols.com/", 
+  {
+    company: "Prodigy Solutions",
+    role: "Founder & CEO",
+    period: "2016 - Present",
+    url: "https://www.prodisols.com/",
     status: "Strategic"
   },
-   { 
-    company: "CxO Global Forum", 
-    role: "Official Member", 
-    period: "Present", 
-    url: "https://cxoforum.global/", 
+  {
+    company: "CxO Global Forum",
+    role: "Official Member",
+    period: "Present",
+    url: "https://cxoforum.global/",
     status: "Current"
   },
-  { 
-    company: "PSEB", 
-    role: "Official Member", 
-    period: "Present", 
-    url: "https://techdestination.com/about-us/", 
+  {
+    company: "PSEB",
+    role: "Official Member",
+    period: "Present",
+    url: "https://techdestination.com/about-us/",
     status: "Current"
   },
-   { 
-    company: "Digify Global", 
-    role: "Founder & CEO", 
-    period: "2021 - Present", 
-    url: "https://digifyglobal.com/", 
+  {
+    company: "Digify Global",
+    role: "Founder & CEO",
+    period: "2021 - Present",
+    url: "https://digifyglobal.com/",
     status: "Strategic"
   },
 ];
@@ -54,9 +54,9 @@ const BoardSeatsSection = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/[0.02] rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
-        
+
         {/* Minimalist Header */}
-        <motion.div 
+        <motion.div
           className="text-center mb-24 space-y-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -91,7 +91,7 @@ const BoardSeatsSection = () => {
             >
               {/* The "Card" - No heavy borders, just soft depth */}
               <div className="flex flex-col md:flex-row md:items-center justify-between p-8 bg-zinc-50/50 rounded-[2rem] border border-transparent hover:border-zinc-100 hover:bg-white hover:shadow-[0_20px_50px_rgba(0,0,0,0.04)] transition-all duration-500">
-                
+
                 <div className="flex items-center gap-8">
                   {/* Modern Icon Presentation */}
                   <div className="w-14 h-14 shrink-0 flex items-center justify-center rounded-2xl bg-white border border-zinc-100 group-hover:border-primary/20 transition-all duration-500">
@@ -118,7 +118,7 @@ const BoardSeatsSection = () => {
                   <Badge variant="outline" className="text-[9px] uppercase tracking-widest px-3 py-1 font-bold border-zinc-200 text-zinc-400 group-hover:border-primary/30 group-hover:text-primary transition-colors">
                     {seat.status}
                   </Badge>
-                  
+
                   {/* Clean CTA Arrow */}
                   <div className="w-10 h-10 flex items-center justify-center rounded-full bg-white border border-zinc-100 text-zinc-300 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-500">
                     <ArrowRight size={18} />
@@ -131,9 +131,9 @@ const BoardSeatsSection = () => {
 
         {/* Refined Minimalist Footer */}
         <div className="mt-24 text-center">
-           <p className="text-[9px] text-zinc-300 uppercase tracking-[0.8em] font-black">
-             LEGACY THROUGH EXCELLENCE
-           </p>
+          <p className="text-[9px] text-zinc-300 uppercase tracking-[0.8em] font-black">
+            LEGACY THROUGH EXCELLENCE
+          </p>
         </div>
       </div>
     </section>

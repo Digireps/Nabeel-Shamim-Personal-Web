@@ -53,7 +53,7 @@ const Footer = () => {
                 // Email object removed from this list
               ].map((social, i) => (
                 <motion.a
-                  key={i}
+                  key={i} 
                   href={social.url}
                   whileHover={{ y: -5 }}
                   target="_blank"
