@@ -119,7 +119,6 @@ const PressSection = () => {
               ))}
             </div>
           </motion.div>
-
           {/* Featured highlight cards */}
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             {featuredItems.map((item, i) => (
