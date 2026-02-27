@@ -27,42 +27,42 @@ const featuredItems = [
     source: "Forbes Council",
     watermark: "FORBES",
     url: "https://councils.forbes.com/profile/Muhammad-Nabeel-Shamim-Founder-CEO-DigiReps/f15d004f-bae0-4bee-8276-1af1b187609e",
-    featured: true, // Tag remains
+    featured: true,
   },
   {
     title: "Muhammad Nabeel Shamim: A Name to Watch in Entrepreneurship & Technology",
     source: "FHM Pakistan",
     watermark: "FHM",
     url: "https://www.fhmpakistan.com/muhammad-nabeel-shamim-a-name-to-watch-in-entrepreneurship-technology-global/",
-    featured: true, // Tag remains
+    featured: true,
   },
   {
     title: "Top 100 Entrepreneurs",
     source: "CXO Global Forum",
     watermark: "CXO",
     url: "https://www.cxoglobal.com",
-    featured: false, // Tag removed
+    featured: false,
   },
   {
     title: "Muhammad Nabeel Shamim Makes It To Forbes",
     source: "Business Bytes",
     watermark: "BYTES",
     url: "https://businessbytes.pk/blog/2025/09/22/pakistani-entrepreneur-muhammad-nabeel-shamim-makes-it-to-forbes/",
-    featured: false, // Tag removed
+    featured: false,
   },
   {
     title: "Featured in Startup Pakistan’s Entrepreneur Spotlight",
     source: "Startup Pakistan",
     watermark: "STARTUP",
     url: "https://startuppakistan.com.pk/pakistani-entrepreneur-muhammad-nabeel-shamim-makes-it-to-forbes/",
-    featured: false, // Tag removed
+    featured: false,
   },
   {
     title: "Featured in PRWeb’s Press Release on Forbes Induction",
     source: "PRWeb",
     watermark: "PRWEB",
     url: "https://www.prweb.com/releases/digireps-founder--ceo-muhammad-n-shamim-inducted-into-forbes-business-council-302574419.html",
-    featured: false, // Tag removed
+    featured: false,
   },
 ];
 
@@ -92,16 +92,18 @@ const PressSection = () => {
 
           {/* As Featured In strip - High visibility brands */}
           <motion.div
-            className="flex items-center justify-center gap-10 mb-14"
+            className="flex items-center justify-center gap-6 md:gap-8 mb-14"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <span className="text-xs uppercase tracking-widest text-zinc-500 font-bold">As Featured In</span>
-            <img src="/gallery/Forbes.png" alt="Forbes" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300" />
-            <div className="w-px h-8 bg-zinc-800" />
-            <img src="/gallery/FHM.png" alt="FHM" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300" />
+            <div className="flex items-center">
+              <img src="/gallery/Forbes.png" alt="Forbes" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 mr-4 md:mr-5" />
+              <div className="w-px h-6 md:h-8 bg-zinc-800 mr-2" />
+              <img src="/gallery/FHM.png" alt="FHM" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300" />
+            </div>
           </motion.div>
 
           {/* Featured highlight cards */}
