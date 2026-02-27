@@ -92,27 +92,34 @@ const PressSection = () => {
 
           {/* As Featured In strip - High visibility brands */}
           <motion.div
-            className="flex items-center justify-center gap-6 md:gap-8 mb-14"
+            className="flex flex-col items-center gap-6 mb-14"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <span className="text-xs uppercase tracking-widest text-zinc-500 font-bold">As Featured In</span>
-            <div className="flex items-center flex-wrap justify-center gap-y-4">
-              <img src="/gallery/Forbes.png" alt="Forbes" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 mr-4 md:mr-5" />
-              <div className="w-px h-6 md:h-8 bg-zinc-800 mr-2" />
-              <img src="/gallery/FHM.png" alt="FHM" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 mr-4 md:mr-5" />
-              <div className="w-px h-6 md:h-8 bg-zinc-800 mr-4 md:mr-5" />
-              <img src="/gallery/StartupPakistan.png" alt="Startup Pakistan" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 mr-4 md:mr-5" />
-              <div className="w-px h-6 md:h-8 bg-zinc-800 mr-4 md:mr-5" />
-              <img src="/gallery/Loug.png" alt="Loug" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 mr-4 md:mr-5" />
-              <div className="w-px h-6 md:h-8 bg-zinc-800 mr-4 md:mr-5" />
-              <img src="/gallery/Metatainment.png" alt="Metatainment" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 mr-4 md:mr-5" />
-              <div className="w-px h-6 md:h-8 bg-zinc-800 mr-4 md:mr-5" />
-              <img src="/gallery/CXO Global.png" alt="CXO Global" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 mr-4 md:mr-5" />
-              <div className="w-px h-6 md:h-8 bg-zinc-800 mr-4 md:mr-5" />
-              <img src="/gallery/Business Bytes.png" alt="Business Bytes" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300" />
+            <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">As Featured In</span>
+            <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap">
+              {[
+                { src: "/gallery/Forbes.png", alt: "Forbes" },
+                { src: "/gallery/FHM.png", alt: "FHM" },
+                { src: "/gallery/StartupPakistan.png", alt: "Startup Pakistan" },
+                { src: "/gallery/Loug.png", alt: "Loug" },
+                { src: "/gallery/Metatainment.png", alt: "Metatainment" },
+                { src: "/gallery/CXO Global.png", alt: "CXO Global" },
+                { src: "/gallery/Business Bytes.png", alt: "Business Bytes" },
+              ].map((logo, i, arr) => (
+                <div key={logo.alt} className="flex items-center gap-8 md:gap-12">
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-6 md:h-8 w-auto object-contain opacity-40 hover:opacity-100 transition-opacity duration-300"
+                  />
+                  {i < arr.length - 1 && (
+                    <div className="w-px h-5 md:h-6 bg-zinc-800 hidden md:block" />
+                  )}
+                </div>
+              ))}
             </div>
           </motion.div>
 
