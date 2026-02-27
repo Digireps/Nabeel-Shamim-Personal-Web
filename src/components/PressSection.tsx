@@ -99,24 +99,24 @@ const PressSection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">As Featured In</span>
-            <div className="flex items-center justify-center gap-8 md:gap-12 flex-wrap">
+            <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-10 overflow-x-auto scrollbar-hide w-full">
               {[
                 { src: "/gallery/Forbes.png", alt: "Forbes" },
                 { src: "/gallery/FHM.png", alt: "FHM" },
                 { src: "/gallery/StartupPakistan.png", alt: "Startup Pakistan" },
                 { src: "/gallery/Loug.png", alt: "Loug" },
                 { src: "/gallery/Metatainment.png", alt: "Metatainment" },
-                { src: "/gallery/CXO Global.png", alt: "CXO Global" },
-                { src: "/gallery/Business Bytes.png", alt: "Business Bytes" },
+                { src: "/gallery/CXO-Global.png", alt: "CXO Global" },
+                { src: "/gallery/Business-Bytes.png", alt: "Business Bytes" },
               ].map((logo, i, arr) => (
-                <div key={logo.alt} className="flex items-center gap-8 md:gap-12">
+                <div key={logo.alt} className="flex items-center gap-6 sm:gap-8 md:gap-10 shrink-0">
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="h-6 md:h-8 w-auto object-contain opacity-40 hover:opacity-100 transition-opacity duration-300"
+                    className="h-5 sm:h-6 md:h-8 w-auto object-contain opacity-40 hover:opacity-100 transition-opacity duration-300"
                   />
                   {i < arr.length - 1 && (
-                    <div className="w-px h-5 md:h-6 bg-zinc-800 hidden md:block" />
+                    <div className="w-px h-4 sm:h-5 md:h-6 bg-zinc-800" />
                   )}
                 </div>
               ))}
