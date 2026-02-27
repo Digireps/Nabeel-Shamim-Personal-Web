@@ -99,30 +99,24 @@ const PressSection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">As Featured In</span>
-            <div className="w-full overflow-x-auto md:overflow-visible [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-              <div className="mx-auto flex w-max min-w-full items-center justify-center gap-5 sm:gap-7 md:gap-10 px-2 md:px-0">
-                {[
-                  { src: "/gallery/Forbes.png", alt: "Forbes" },
-                  { src: "/gallery/FHM.png", alt: "FHM" },
-                  { src: "/gallery/StartupPakistan.png", alt: "Startup Pakistan" },
-                  { src: "/gallery/Loug.png", alt: "Loug" },
-                  { src: "/gallery/Metatainment.png", alt: "Metatainment" },
-                  { src: "/gallery/CXO-Global.png", alt: "CXO Global" },
-                  { src: "/gallery/Business-Bytes.png", alt: "Business Bytes" },
-                ].map((logo, i, arr) => (
-                  <div key={logo.alt} className="flex items-center gap-5 sm:gap-7 md:gap-10 shrink-0">
-                    <img
-                      src={logo.src}
-                      alt={logo.alt}
-                      className="h-4 sm:h-5 md:h-7 w-auto object-contain opacity-45 hover:opacity-100 transition-opacity duration-300"
-                      loading="lazy"
-                    />
-                    {i < arr.length - 1 && (
-                      <div className="w-px h-4 sm:h-5 md:h-6 bg-border" />
-                    )}
-                  </div>
-                ))}
-              </div>
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 md:gap-x-10 px-4 md:px-0">
+              {[
+                { src: "/gallery/Forbes.png", alt: "Forbes" },
+                { src: "/gallery/FHM.png", alt: "FHM" },
+                { src: "/gallery/StartupPakistan.png", alt: "Startup Pakistan" },
+                { src: "/gallery/Loug.png", alt: "Loug" },
+                { src: "/gallery/Metatainment.png", alt: "Metatainment" },
+                { src: "/gallery/CXO-Global.png", alt: "CXO Global" },
+                { src: "/gallery/Business-Bytes.png", alt: "Business Bytes" },
+              ].map((logo) => (
+                <img
+                  key={logo.alt}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-4 sm:h-5 md:h-7 w-auto object-contain opacity-45 hover:opacity-100 transition-opacity duration-300"
+                  loading="lazy"
+                />
+              ))}
             </div>
           </motion.div>
 
