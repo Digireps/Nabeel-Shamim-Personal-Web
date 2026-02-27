@@ -99,10 +99,20 @@ const PressSection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <span className="text-xs uppercase tracking-widest text-zinc-500 font-bold">As Featured In</span>
-            <div className="flex items-center">
+            <div className="flex items-center flex-wrap justify-center gap-y-4">
               <img src="/gallery/Forbes.png" alt="Forbes" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 mr-4 md:mr-5" />
               <div className="w-px h-6 md:h-8 bg-zinc-800 mr-2" />
-              <img src="/gallery/FHM.png" alt="FHM" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300" />
+              <img src="/gallery/FHM.png" alt="FHM" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 mr-4 md:mr-5" />
+              <div className="w-px h-6 md:h-8 bg-zinc-800 mr-4 md:mr-5" />
+              <img src="/gallery/StartupPakistan.png" alt="Startup Pakistan" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 mr-4 md:mr-5" />
+              <div className="w-px h-6 md:h-8 bg-zinc-800 mr-4 md:mr-5" />
+              <img src="/gallery/Loug.png" alt="Loug" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 mr-4 md:mr-5" />
+              <div className="w-px h-6 md:h-8 bg-zinc-800 mr-4 md:mr-5" />
+              <img src="/gallery/Metatainment.png" alt="Metatainment" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 mr-4 md:mr-5" />
+              <div className="w-px h-6 md:h-8 bg-zinc-800 mr-4 md:mr-5" />
+              <img src="/gallery/CXO Global.png" alt="CXO Global" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 mr-4 md:mr-5" />
+              <div className="w-px h-6 md:h-8 bg-zinc-800 mr-4 md:mr-5" />
+              <img src="/gallery/Business Bytes.png" alt="Business Bytes" className="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300" />
             </div>
           </motion.div>
 
