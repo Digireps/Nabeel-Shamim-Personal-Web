@@ -11,13 +11,18 @@ const podcasts = [
   },
   {
     title: "Entrepreneurship & Global Business Strategy",
-    videoId: "GUyYtigYkH4",
-    url: "https://youtu.be/GUyYtigYkH4?si=lYXZs2gU8Q--44Fz",
+    videoId: "B7QrhYaoBQg",
+    url: "https://youtu.be/B7QrhYaoBQg?si=v8hgBPZ-0JJGamiD",
   },
   {
     title: "Leadership, Technology & the Future of Work",
     videoId: "jbCObAiOZiQ",
     url: "https://youtu.be/jbCObAiOZiQ?si=bMM-DvA7D9Dd1HG_",
+  },
+  {
+    title: "The CxO Talk: Scaling DigiReps & Global Sales",
+    videoId: "ast3S1y5Xgo",
+    url: "https://www.youtube.com/live/ast3S1y5Xgo?si=f2hgcVbn37X0siwZ",
   },
 ];
 
@@ -191,7 +196,7 @@ const PressSection = () => {
               Podcasts & Interviews
             </p>
           </motion.div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {podcasts.map((pod, i) => (
               <motion.div
                 key={i}
