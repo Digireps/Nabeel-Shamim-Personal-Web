@@ -3,11 +3,23 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
 const galleryImages = [
-  "/gallery/1.webp", "/gallery/2.webp", "/gallery/3.webp", "/gallery/4.webp", 
-  "/gallery/5.webp", "/gallery/6.webp", "/gallery/7.webp", "/gallery/8.webp", 
-  "/gallery/9.webp", "/gallery/10.webp", "/gallery/11.webp", "/gallery/12.webp",
-  "/gallery/13.png", "/gallery/14.png", "/gallery/15.png", "/gallery/16.png",
-  "/gallery/17.png",
+  { src: "/gallery/1.webp", alt: "Nabeel Shamim presenting at a corporate event" },
+  { src: "/gallery/2.webp", alt: "Nabeel Shamim on stage during a business keynote speech" },
+  { src: "/gallery/3.webp", alt: "Nabeel Shamim interacting with attendees at a tech summit" },
+  { src: "/gallery/4.webp", alt: "Nabeel Shamim speaking on leadership and entrepreneurship" },
+  { src: "/gallery/5.webp", alt: "Nabeel Shamim panel discussion at a startup seminar" },
+  { src: "/gallery/6.webp", alt: "Nabeel Shamim networking with industry leaders" },
+  { src: "/gallery/7.webp", alt: "Nabeel Shamim attending a Forbes Business Council event" },
+  { src: "/gallery/8.webp", alt: "Nabeel Shamim leading a DigiReps team office workshop" },
+  { src: "/gallery/9.webp", alt: "Nabeel Shamim participating in an entrepreneurial forum" },
+  { src: "/gallery/10.webp", alt: "Nabeel Shamim giving an interview on business growth and leadership" },
+  { src: "/gallery/11.webp", alt: "Nabeel Shamim with team members at DigiReps" },
+  { src: "/gallery/12.webp", alt: "Nabeel Shamim receiving a prestigious recognition award" },
+  { src: "/gallery/13.png", alt: "Nabeel Shamim posing with corporate team and colleagues" },
+  { src: "/gallery/14.png", alt: "Nabeel Shamim during a meeting with executive board members" },
+  { src: "/gallery/15.png", alt: "Nabeel Shamim at a professional networking dinner event" },
+  { src: "/gallery/16.png", alt: "Nabeel Shamim discussing business strategies at a roundtable conference" },
+  { src: "/gallery/17.png", alt: "Nabeel Shamim speaking session as a featured entrepreneur" },
 ];
 
 const GallerySection = () => {
@@ -73,17 +85,17 @@ const GallerySection = () => {
             transition={{ ease: "linear", duration: 40, repeat: Infinity }}
             whileHover={{ animationPlayState: "paused" }}
           >
-            {duplicatedImages.map((src, index) => (
+            {duplicatedImages.map((item, index) => (
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.02 }}
-                onClick={() => setSelectedImage(src)}
+                onClick={() => setSelectedImage(item.src)}
                 className="relative flex-shrink-0 w-[300px] md:w-[450px] aspect-[16/10] rounded-[2.5rem] overflow-hidden bg-zinc-50 border border-zinc-100 shadow-[0_4px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)] transition-all duration-700 group/item"
               >
                 <div className="absolute inset-px rounded-[2.4rem] border border-white/60 z-20 pointer-events-none" />
                 <img
-                  src={src}
-                  alt={`Gallery ${index}`}
+                  src={item.src}
+                  alt={item.alt}
                   width={720}
                   height={450}
                   loading="lazy"
@@ -132,7 +144,7 @@ const GallerySection = () => {
             >
               <img 
                 src={selectedImage} 
-                alt="Selected Milestone" 
+                alt={galleryImages.find(img => img.src === selectedImage)?.alt || "Muhammad Nabeel Shamim Milestone"} 
                 className="w-full h-full object-cover"
               />
             </motion.div>
