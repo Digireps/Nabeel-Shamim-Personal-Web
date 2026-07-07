@@ -145,7 +145,7 @@ const BoardSeatsSection = () => {
 
         {/* Refined Minimalist Footer */}
         <div className="mt-24 text-center">
-          <p className="text-[9px] text-zinc-300 uppercase tracking-[0.8em] font-black">
+          <p className="text-[9px] text-zinc-400 uppercase tracking-[0.8em] font-black">
             LEGACY THROUGH EXCELLENCE
           </p>
         </div>
