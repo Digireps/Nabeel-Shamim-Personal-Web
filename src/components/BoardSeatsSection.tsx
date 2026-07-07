@@ -15,36 +15,50 @@ const roles = [
     role: "Official Member",
     period: "Present",
     url: "https://councils.forbes.com/profile/Muhammad-Nabeel-Shamim-Founder-CEO-DigiReps/f15d004f-bae0-4bee-8276-1af1b187609e",
-    status: "Current"
+    status: "Active"
   },
   {
     company: "Prodigy Solutions",
     role: "Founder & CEO",
     period: "2016 - Present",
     url: "https://www.prodisols.com/",
-    status: "Strategic"
+    status: "Active"
   },
   {
     company: "CxO Global Forum",
     role: "Official Member",
     period: "Present",
     url: "https://cxoforum.global/",
-    status: "Current"
+    status: "Active"
   },
   {
     company: "PSEB",
     role: "Official Member",
     period: "Present",
     url: "https://techdestination.com/about-us/",
-    status: "Current"
+    status: "Active"
   },
   {
     company: "Digify Global",
     role: "Founder & CEO",
     period: "2021 - Present",
     url: "https://digifyglobal.com/",
-    status: "Strategic"
+    status: "Active"
   },
+  {
+    company: "Karachi Chamber Commerce & Industry",
+    role: "Official Member",
+    period: "2026 - Present",
+    url: "https://www.kcci.com.pk/",
+    status: "Active"
+  },
+  {
+    company: "Connected Pakistan",
+    role: "Official Member",
+    period: "2026 - Present",
+    url: "https://connectedpakistan.pk/",
+    status: "Active"
+  }
 ];
 
 const BoardSeatsSection = () => {
