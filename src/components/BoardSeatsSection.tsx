@@ -48,14 +48,14 @@ const roles = [
   {
     company: "Karachi Chamber Commerce & Industry",
     role: "Official Member",
-    period: "2026 - Present",
+    period: "Present",
     url: "https://www.kcci.com.pk/",
     status: "Active"
   },
   {
     company: "Connected Pakistan",
     role: "Official Member",
-    period: "2026 - Present",
+    period: "Present",
     url: "https://connectedpakistan.pk/",
     status: "Active"
   }
