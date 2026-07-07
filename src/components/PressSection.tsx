@@ -105,14 +105,14 @@ const PressSection = () => {
           >
             <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">As Featured In</span>
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 md:gap-x-10 px-4 md:px-0">
-              {[
-                { src: "/gallery/Forbes.png", alt: "Forbes" },
-                { src: "/gallery/FHM.png", alt: "FHM" },
-                { src: "/gallery/StartupPakistan.png", alt: "Startup Pakistan" },
-                { src: "/gallery/Loug.png", alt: "Loug" },
-                { src: "/gallery/Metatainment.png", alt: "Metatainment" },
-                { src: "/gallery/CXO-Global.png", alt: "CXO Global" },
-                { src: "/gallery/Business-Bytes.png", alt: "Business Bytes" },
+               {[
+                { src: "/gallery/Forbes.png", alt: "Forbes publication featuring Muhammad Nabeel Shamim" },
+                { src: "/gallery/FHM.png", alt: "FHM Pakistan feature on Nabeel Shamim" },
+                { src: "/gallery/StartupPakistan.png", alt: "Startup Pakistan spotlight on entrepreneur Nabeel Shamim" },
+                { src: "/gallery/Loug.png", alt: "Loug media interview with Nabeel Shamim" },
+                { src: "/gallery/Metatainment.png", alt: "Metatainment news coverage on Nabeel Shamim" },
+                { src: "/gallery/CXO-Global.png", alt: "CXO Global Forum award recognition for Nabeel Shamim" },
+                { src: "/gallery/Business-Bytes.png", alt: "Business Bytes press report on Muhammad Nabeel Shamim" },
               ].map((logo) => (
                 <img
                   key={logo.alt}

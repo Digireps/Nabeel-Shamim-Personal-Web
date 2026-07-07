@@ -7,6 +7,10 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
+      <image:loc>https://nabeelshamim.com/nabeel-portrait.png</image:loc>
+      <image:title>Muhammad Nabeel Shamim — Forbes Business Council Member and Founder of DigiReps</image:title>
+    </image:image>
+    <image:image>
       <image:loc>https://nabeelshamim.com/gallery/1.webp</image:loc>
       <image:title>Nabeel Shamim presenting at a corporate event</image:title>
     </image:image>
