@@ -7,7 +7,7 @@ const roles = [
     company: "DigiReps",
     role: "Founder & CEO",
     period: "2023 - Present",
-    url: "https://digireps.co",
+    url: "https://digireps.co/aboutus",
     status: "Active"
   },
   {
@@ -21,7 +21,7 @@ const roles = [
     company: "Prodigy Solutions",
     role: "Founder & CEO",
     period: "2016 - Present",
-    url: "https://www.prodisols.com/",
+    url: "https://www.prodisols.com/about-us/",
     status: "Active"
   },
   {
@@ -42,7 +42,7 @@ const roles = [
     company: "Digify Global",
     role: "Founder & CEO",
     period: "2021 - Present",
-    url: "https://digifyglobal.com/",
+    url: "https://digifyglobal.com/about-digify/",
     status: "Active"
   },
   {
@@ -56,7 +56,7 @@ const roles = [
     company: "Connected Pakistan",
     role: "Official Member",
     period: "Present",
-    url: "https://connectedpakistan.pk/",
+    url: "https://people.connectedpakistan.pk/muhammad-nabeel-shamim",
     status: "Active"
   }
 ];

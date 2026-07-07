@@ -7,6 +7,7 @@ const InvestmentsSection = React.lazy(() => import("@/components/InvestmentsSect
 const StatsSection = React.lazy(() => import("@/components/StatsSection"));
 const PressSection = React.lazy(() => import("@/components/PressSection"));
 const BoardSeatsSection = React.lazy(() => import("@/components/BoardSeatsSection"));
+const PublishedBooksSection = React.lazy(() => import("@/components/PublishedBooksSection"));
 const TestimonialsSection = React.lazy(() => import("@/components/TestimonialsSection"));
 const GallerySection = React.lazy(() => import("@/components/GallerySection"));
 const ContactSection = React.lazy(() => import("@/components/ContactSection"));
@@ -23,6 +24,7 @@ const Index = () => {
           <InvestmentsSection />
           <StatsSection />
           <PressSection />
+          <PublishedBooksSection />
           <BoardSeatsSection />
           <TestimonialsSection />
           <GallerySection />
