@@ -28,7 +28,7 @@ function useCountUp(target: number, duration: number, start: boolean) {
 
 const StatsSection = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-10px" });
 
   return (
     <section className="py-20 relative overflow-hidden bg-[#FBFBFD]">

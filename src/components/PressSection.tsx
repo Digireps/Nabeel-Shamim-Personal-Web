@@ -84,7 +84,7 @@ const PressSection = () => {
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-10px" }}
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-sm uppercase tracking-[0.3em] text-primary font-semibold mb-3">
@@ -100,7 +100,7 @@ const PressSection = () => {
             className="flex flex-col items-center gap-6 mb-14"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-10px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold">As Featured In</span>
@@ -135,7 +135,7 @@ const PressSection = () => {
                 className="group relative flex flex-col justify-end p-8 md:p-12 rounded-[2.5rem] bg-white/[0.03] border border-white/5 hover:border-primary/30 transition-all duration-500 overflow-hidden min-h-[350px]"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "-10px" }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ y: -8 }}
               >
@@ -183,7 +183,7 @@ const PressSection = () => {
             className="text-center mt-32 mb-14"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-10px" }}
             transition={{ duration: 0.6 }}
           >
             <div className="flex items-center justify-center gap-3 mb-3">
@@ -203,7 +203,7 @@ const PressSection = () => {
                 className="group relative rounded-[2rem] overflow-hidden border border-white/5 bg-white/[0.02] hover:border-primary/30 transition-all duration-500"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "-10px" }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ y: -6 }}
               >

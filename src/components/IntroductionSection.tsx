@@ -7,7 +7,7 @@ const intro = "/intro.png";
 const fadeIn: HTMLMotionProps<"div"> = {
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-100px" },
+  viewport: { once: true, margin: "-10px" },
   transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
 };
 
