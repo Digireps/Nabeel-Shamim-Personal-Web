@@ -23,9 +23,20 @@ const galleryImages = [
 ];
 
 const GallerySection = () => {
-  const duplicatedImages = [...galleryImages, ...galleryImages];
+  const [isMobile, setIsMobile] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const displayedImages = isMobile ? galleryImages : [...galleryImages, ...galleryImages];
 
   // Prevent background scroll when image is open
   useEffect(() => {
@@ -80,17 +91,30 @@ const GallerySection = () => {
         >
           <motion.div
             className="flex gap-8 px-4"
-            style={{ willChange: 'transform', contain: 'layout style paint' }}
-            animate={{ x: ["0%", "-50%"] }} 
-            transition={{ ease: "linear", duration: 40, repeat: Infinity }}
-            whileHover={{ animationPlayState: "paused" }}
+            style={{ 
+              willChange: 'transform', 
+              contain: 'layout style paint',
+              transform: 'translate3d(0, 0, 0)',
+              WebkitTransform: 'translate3d(0, 0, 0)',
+              backfaceVisibility: 'hidden',
+              WebkitBackfaceVisibility: 'hidden'
+            }}
+            animate={isMobile ? false : { x: ["0%", "-50%"] }} 
+            transition={isMobile ? undefined : { ease: "linear", duration: 40, repeat: Infinity }}
+            whileHover={isMobile ? undefined : { animationPlayState: "paused" }}
           >
-            {duplicatedImages.map((item, index) => (
+            {displayedImages.map((item, index) => (
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.02 }}
                 onClick={() => setSelectedImage(item.src)}
                 className="relative flex-shrink-0 w-[300px] md:w-[450px] aspect-[16/10] rounded-[2.5rem] overflow-hidden bg-zinc-50 border border-zinc-100 shadow-[0_4px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)] transition-all duration-700 group/item"
+                style={{
+                  transform: 'translate3d(0, 0, 0)',
+                  WebkitTransform: 'translate3d(0, 0, 0)',
+                  backfaceVisibility: 'hidden',
+                  WebkitBackfaceVisibility: 'hidden'
+                }}
               >
                 <div className="absolute inset-px rounded-[2.4rem] border border-white/60 z-20 pointer-events-none" />
                 <img
@@ -101,6 +125,12 @@ const GallerySection = () => {
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover grayscale-[0.3] group-hover/item:grayscale-0 transition-all duration-1000 ease-out"
+                  style={{
+                    transform: 'translate3d(0, 0, 0)',
+                    WebkitTransform: 'translate3d(0, 0, 0)',
+                    backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden'
+                  }}
                 />
               </motion.div>
             ))}

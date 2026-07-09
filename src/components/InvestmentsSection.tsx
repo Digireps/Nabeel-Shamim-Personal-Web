@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Building2, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const ventures = [
   {
@@ -48,9 +48,20 @@ const ventures = [
 ];
 
 const InvestmentsSection = () => {
-  // Triple items to ensure seamless manual and auto-scrolling
-  const duplicatedVentures = [...ventures, ...ventures, ...ventures];
+  const [isMobile, setIsMobile] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Triple items only on desktop for seamless infinite marquee loop
+  const displayedVentures = isMobile ? ventures : [...ventures, ...ventures, ...ventures];
 
   const handleScroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
@@ -91,26 +102,43 @@ const InvestmentsSection = () => {
         >
           <motion.div
             className="flex gap-8 px-4"
-            style={{ willChange: 'transform', contain: 'layout style paint' }}
-            // FIX: Animate to -33.33% because the list is tripled.
-            // This creates a perfect, gapless loop.
-            animate={{ x: ["0%", "-33.333%"] }}
-            transition={{
+            style={{ 
+              willChange: 'transform', 
+              contain: 'layout style paint',
+              transform: 'translate3d(0, 0, 0)',
+              WebkitTransform: 'translate3d(0, 0, 0)',
+              backfaceVisibility: 'hidden',
+              WebkitBackfaceVisibility: 'hidden'
+            }}
+            animate={isMobile ? false : { x: ["0%", "-33.333%"] }}
+            transition={isMobile ? undefined : {
               ease: "linear",
               duration: 35,
               repeat: Infinity
             }}
-            whileHover={{ animationPlayState: "paused" }}
+            whileHover={isMobile ? undefined : { animationPlayState: "paused" }}
           >
-            {duplicatedVentures.map((company, i) => (
+            {displayedVentures.map((company, i) => (
               <motion.a
                 key={i}
                 href={company.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-shrink-0 w-[350px] md:w-[400px] relative bg-white rounded-[2.5rem] p-10 border border-zinc-100 shadow-[0_20px_50px_rgba(0,0,0,0.02)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.06)] transition-all duration-500 block"
+                style={{
+                  transform: 'translate3d(0, 0, 0)',
+                  WebkitTransform: 'translate3d(0, 0, 0)',
+                  backfaceVisibility: 'hidden',
+                  WebkitBackfaceVisibility: 'hidden'
+                }}
               >
-                <div className="absolute top-10 right-10 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity">
+                <div 
+                  className="absolute top-10 right-10 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity"
+                  style={{
+                    transform: 'translate3d(0, 0, 0)',
+                    WebkitTransform: 'translate3d(0, 0, 0)'
+                  }}
+                >
                   <Building2 size={100} />
                 </div>
 
