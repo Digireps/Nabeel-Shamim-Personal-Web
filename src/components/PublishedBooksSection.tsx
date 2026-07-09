@@ -23,7 +23,7 @@ const PublishedBooksSection = () => {
             <div className="h-[1px] w-6 bg-zinc-200" />
           </div>
           <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#1d1d1f]">
-            BOOKS &amp; <span className="text-primary italic">Frameworks.</span>
+            Books &amp; <span className="text-primary italic">Frameworks.</span>
           </h2>
           <p className="text-zinc-400 text-sm md:text-base max-w-xl mx-auto pt-2 font-medium leading-relaxed">
             Over the years, I’ve developed practical methodologies from real-world experience building businesses, 
@@ -44,9 +44,7 @@ const PublishedBooksSection = () => {
           >
             {/* Left Column: Number & Book cover */}
             <div className="flex gap-6 items-start shrink-0">
-              <span className="text-xs font-mono font-black text-primary/45 tracking-widest pt-1">
-                [01]
-              </span>
+              
               
               {/* Flat, editorial shadow style cover */}
               <div className="relative w-[110px] h-[165px] bg-zinc-50 border border-zinc-100 rounded-sm overflow-hidden shadow-[2px_10px_20px_rgba(0,0,0,0.06)] group cursor-pointer">
@@ -81,9 +79,7 @@ const PublishedBooksSection = () => {
                   <span>Buy on Amazon</span>
                   <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform duration-300" />
                 </a>
-                <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
-                  Internationally Published
-                </span>
+                
               </div>
             </div>
           </motion.div>
@@ -98,9 +94,7 @@ const PublishedBooksSection = () => {
           >
             {/* Left Column: Number & Book cover */}
             <div className="flex gap-6 items-start shrink-0">
-              <span className="text-xs font-mono font-black text-primary/45 tracking-widest pt-1">
-                [02]
-              </span>
+             
               
               {/* Flat, editorial shadow style cover */}
               <div className="relative w-[110px] h-[165px] bg-zinc-50 border border-zinc-100 rounded-sm overflow-hidden shadow-[2px_10px_20px_rgba(0,0,0,0.06)] group cursor-pointer shrink-0">
@@ -115,7 +109,7 @@ const PublishedBooksSection = () => {
             {/* Right Column: Title, description and clean text CTA */}
             <div className="flex-grow max-w-2xl space-y-4">
               <span className="inline-block text-[9px] font-black uppercase tracking-widest text-primary/65">
-                Strategic Audit
+                Diagnostic Blueprint
               </span>
               <h3 className="text-xl md:text-2xl font-bold tracking-tight text-[#1d1d1f] leading-snug">
                 Nabeel Shamim’s Five Lens™
