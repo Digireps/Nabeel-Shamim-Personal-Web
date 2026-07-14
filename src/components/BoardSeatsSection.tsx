@@ -46,7 +46,7 @@ const roles = [
     status: "Active"
   },
   {
-    company: "Karachi Chamber Commerce & Industry",
+    company: "Karachi Chamber of Commerce & Industry",
     role: "Official Member",
     period: "Present",
     url: "https://www.kcci.com.pk/",
